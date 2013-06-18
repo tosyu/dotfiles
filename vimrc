@@ -222,6 +222,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'ciaranm/detectindent'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
 
 " tagbar conf"
 
@@ -273,7 +274,7 @@ map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
 
 " toggle special chars
-nmap <silent> <C-i> :call MakeHiddenCharsVisible()<cr> 
+map <leader>h :call MakeHiddenCharsVisible()<cr> 
 
 " buffers
 map <C-j> <C-W>j
@@ -303,16 +304,9 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR> 
 
 " ============== UI CONF ================
-
-let g:solarized_termtans=1
-set background=dark
-colorscheme solarized
-set t_Co=16
-
 if has("gui_running")
   set guioptions-=T
   set guioptions+=e
-  set t_Co=256
   set guitablabel=%M\ %t
 endif
 
