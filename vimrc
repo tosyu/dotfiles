@@ -5,7 +5,7 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 let g:make_spc_chars_visible = 1
-func! MakeHiddenCharsVisible() 
+func! MakeHiddenCharsVisible()
   if g:make_spc_chars_visible
     set list
     let g:make_spc_chars_visible = 0
@@ -81,8 +81,14 @@ filetype off
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
+if has("win32") || has("win64") 
+  if filereadable(expand("~/_vimrc.before"))
+    source ~/.vimrc.before
+  endif
+else
+  if filereadable(expand("~/_vimrc.before"))
+    source ~/.vimrc.before
+  endif
 endif
 
 set number                      "Line numbers are good
@@ -105,7 +111,7 @@ syntax on
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all 
+" The mapleader has to be set before vundle starts loading all
 " the plugins.
 let mapleader=","
 let g:mapleader = ","
@@ -124,9 +130,10 @@ set mat=2
 set t_vb=
 set tm=500
 set nomousehide
+set shellslash
 
 " show invisible chars
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:>\ ,trail:-,eol:$,nbsp:_
 " set encoding to utf8 and default file type to unix
 
 set encoding=utf8 nobomb
@@ -146,9 +153,13 @@ set nowb
 " Persistent Undo
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
+if has("win32") || has("win64")
+  silent !mkdir ~/vimfiles/backups > /dev/null 2>&1
+  set undodir=~/vimfiles/backups
+else
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+endif
 set undofile
 
 " Indentation
@@ -208,11 +219,15 @@ set viminfo^=%
 
 " vundle
 
-set rtp+=~/.vim/bundle/vundle/
+if has("win32") || has("win64")
+  set rtp+=~/vimfiles/bundle/vundle
+else
+  set rtp+=~/.vim/bundle/vundle/
+endif
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'hallettj/jslint.vim'
@@ -254,7 +269,7 @@ let g:tagbar_type_markdown = {
 " autocmd conf
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
-autocmd BufReadPost * :DetectIndent 
+autocmd BufReadPost * :DetectIndent
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 " ============== KEY MAPPINGS ===========
 
@@ -276,7 +291,7 @@ map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
 
 " toggle special chars
-map <leader>h :call MakeHiddenCharsVisible()<cr> 
+map <leader>h :call MakeHiddenCharsVisible()<cr>
 
 " buffers
 map <C-j> <C-W>j
@@ -303,7 +318,7 @@ nmap <silent> <C-left> :tabprevious<cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-nmap <F8> :TagbarToggle<CR> 
+nmap <F8> :TagbarToggle<CR>
 
 " ============== UI CONF ================
 
@@ -316,6 +331,6 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=b
   set guitablabel=%M\ %t
-  set guifont=DejaVu\ Sans\ Mono\ 11
+  set guifont=DejaVu_Sans_Mono:h11
 endif
 
