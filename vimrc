@@ -125,8 +125,7 @@ set t_vb=
 set tm=500
 
 " show invisible chars
-set lcs=tab:>\ ,trail:.,eol:¬,nbsp:_
-
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 " set encoding to utf8 and default file type to unix
 
 set encoding=utf8 nobomb
@@ -294,7 +293,6 @@ map <leader>bp :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-nmap <silent> <C-w> :tabclose<cr>
 map <leader>tm :tabmove
 nmap <silent> <C-right> :tabnext<cr>
 nmap <silent> <C-left> :tabprevious<cr>
