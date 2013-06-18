@@ -123,6 +123,7 @@ set showmatch
 set mat=2
 set t_vb=
 set tm=500
+set nomousehide
 
 " show invisible chars
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -223,6 +224,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'ciaranm/detectindent'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/molokai'
 
 " tagbar conf"
 
@@ -304,9 +306,15 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR> 
 
 " ============== UI CONF ================
+
 if has("gui_running")
+  colors molokai
   set guioptions-=T
   set guioptions+=e
+  set guioptions-=m
+  set guioptions-=r
+  set guioptions-=l
+  set guioptions-=b
   set guitablabel=%M\ %t
 endif
 
