@@ -316,5 +316,6 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=b
   set guitablabel=%M\ %t
+  set guifont=DejaVu\ Sans\ Mono\ 11
 endif
 
