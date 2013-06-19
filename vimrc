@@ -332,9 +332,9 @@ if has("gui_running")
   set guioptions-=b
   set guitablabel=%M\ %t
   if has("win32") || has("win64")
-    set guifont=Inconsolata:h11
+    set guifont=Inconsolata:h12
   else
-    set guifont=Inconsolata\ 11
+    set guifont=Inconsolata\ 12
   endif 
 endif
 
