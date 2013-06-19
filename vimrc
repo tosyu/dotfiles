@@ -86,7 +86,7 @@ if has("win32") || has("win64")
     source ~/.vimrc.before
   endif
 else
-  if filereadable(expand("~/_vimrc.before"))
+  if filereadable(expand("~/.vimrc.before"))
     source ~/.vimrc.before
   endif
 endif
@@ -331,6 +331,10 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=b
   set guitablabel=%M\ %t
-  set guifont=DejaVu_Sans_Mono:h11
+  if has("win32") || has("win64")
+    set guifont=Inconsolata:h11
+  else
+    set guifont=Inconsolata\ 11
+  endif 
 endif
 
