@@ -142,7 +142,7 @@ set ffs=unix,dos,mac
 set cmdheight=1
 
 set laststatus=2
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ %{fugitive#statusline()}\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " Turn Off Swap Files
 "
