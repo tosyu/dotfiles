@@ -240,6 +240,8 @@ Bundle 'ciaranm/detectindent'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/molokai'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'pangloss/vim-javascript'
 
 " tagbar conf"
 
