@@ -242,6 +242,8 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/molokai'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
+Bundle 'mattn/zencoding-vim'
+Bundle 'altercation/vim-colors-solarized'
 
 " tagbar conf"
 
@@ -325,7 +327,6 @@ nmap <F8> :TagbarToggle<CR>
 " ============== UI CONF ================
 
 if has("gui_running")
-  colors molokai
   set guioptions-=T
   set guioptions+=e
   set guioptions-=m
@@ -338,5 +339,10 @@ if has("gui_running")
   else
     set guifont=Inconsolata\ 12
   endif 
+else
+  let g:solarized_termtrans=1
 endif
+
+set background=dark
+colors solarized
 
