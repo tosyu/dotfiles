@@ -244,6 +244,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'skammer/vim-css-color'
+Bundle 'scrooloose/nerdtree'
 
 " tagbar conf"
 
@@ -255,6 +257,8 @@ let g:tagbar_type_css = {
   \ 'i:identities'
   \ ]
 \ }
+
+let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " let g:tagbar_type_javascript = {
 "   \ 'ctagsbin' : '/usr/local/bin/jsctags'
@@ -275,6 +279,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufReadPost * :DetectIndent
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " ============== KEY MAPPINGS ===========
 
 " disable paste mode
@@ -323,6 +328,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
 
 " ============== UI CONF ================
 
