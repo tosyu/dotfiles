@@ -217,6 +217,10 @@ endtry
 
 set viminfo^=%
 
+" tabline
+set showtabline=0
+
+
 " vundle
 
 if has("win32") || has("win64")
@@ -246,6 +250,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle 'scrooloose/nerdtree'
+Bundle 'lunaru/vim-less'
 
 " tagbar conf"
 
@@ -334,9 +339,11 @@ nmap <F9> :NERDTreeToggle<CR>
 
 if has("gui_running")
   set guioptions-=T
-  set guioptions+=e
+  set guioptions-=e
   set guioptions-=m
   set guioptions-=r
+  set guioptions-=R
+  set guioptions-=L
   set guioptions-=l
   set guioptions-=b
   set guitablabel=%M\ %t
