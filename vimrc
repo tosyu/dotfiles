@@ -243,7 +243,7 @@ Bundle 'ciaranm/detectindent'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/molokai'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -252,6 +252,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'lunaru/vim-less'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'zhaocai/linepower.vim'
+
+" powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -269,6 +273,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:unite_source_grep_command='ag'
 let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
 let g:unite_source_grep_recursive_opt=''
+
+let g:unite_force_overwrite_statusline = 0
 
 " tagbar conf"
 
