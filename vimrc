@@ -265,6 +265,11 @@ let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
 let g:unite_prompt='» '
 
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:unite_source_grep_command='ag'
+let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
+let g:unite_source_grep_recursive_opt=''
+
 " tagbar conf"
 
 let g:tagbar_type_css = {
