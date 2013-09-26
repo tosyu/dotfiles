@@ -253,6 +253,11 @@ Bundle 'lunaru/vim-less'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'zhaocai/linepower.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+
+" syntastic
+let g:syntastic_enable_signs=1
 
 " powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
