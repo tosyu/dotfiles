@@ -266,8 +266,11 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " powerline
-let g:Powerline_symbols = 'fancy'
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" disable in terminal, fails
+if has("gui_running")
+  let g:Powerline_symbols = 'fancy'
+  set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+endif
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
