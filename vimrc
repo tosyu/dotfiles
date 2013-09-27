@@ -260,6 +260,7 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 
 " powerline
+let g:Powerline_symbols = 'fancy'
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " unite conf
