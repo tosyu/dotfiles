@@ -259,6 +259,12 @@ Bundle 'scrooloose/syntastic'
 " syntastic
 let g:syntastic_enable_signs=1
 
+" ycm
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " powerline
 let g:Powerline_symbols = 'fancy'
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -333,6 +339,8 @@ map <leader>w :w!<cr>
 map <leader>cp :CtrlP<cr>
 map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
+
+map <leader>e :Errors<cr>
 
 " toggle special chars
 map <leader>h :call MakeHiddenCharsVisible()<cr>
