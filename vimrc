@@ -255,6 +255,7 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'zhaocai/linepower.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+Bundle 'dart-lang/dart-vim-plugin'
 
 " syntastic
 let g:syntastic_enable_signs=1
