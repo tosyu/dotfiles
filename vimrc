@@ -132,6 +132,10 @@ set tm=500
 set nomousehide
 set shellslash
 
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
 " show invisible chars
 set lcs=tab:>\ ,trail:-,eol:$,nbsp:_
 " set encoding to utf8 and default file type to unix
@@ -183,7 +187,7 @@ set linebreak    "Wrap lines at convenient points
 
 " Folds
 
-set foldmethod=indent   "fold based on indent
+set foldmethod=manual   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
@@ -256,6 +260,8 @@ Bundle 'zhaocai/linepower.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'mattn/emmet-vim'
+Bundle 'groenewege/vim-less'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -344,6 +350,11 @@ map <leader>cp :CtrlP<cr>
 map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
 
+inoremap <F7> <C-O>za
+nnoremap <F7> za
+onoremap <F7> <C-C>za
+vnoremap <F7> zf
+
 map <leader>e :Errors<cr>
 
 " toggle special chars
@@ -395,14 +406,14 @@ if has("gui_running")
   set guioptions-=b
   set guitablabel=%M\ %t
   if has("win32") || has("win64")
-    set guifont=Inconsolata:h12
+    set guifont=Inconsolata:h13
   else
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata\ 13
   endif 
 else
   let g:solarized_termtrans=1
 endif
 
 set background=dark
-colors solarized
+colors molokai
 
