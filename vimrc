@@ -262,6 +262,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'mattn/emmet-vim'
 Bundle 'groenewege/vim-less'
+Bundle 'heavenshell/vim-jsdoc'
 
 " syntastic
 let g:syntastic_enable_signs=1
