@@ -224,6 +224,7 @@ set viminfo^=%
 " tabline
 set showtabline=0
 
+let g:EclimCompletionMethod = 'omnifunc'
 
 " vundle
 
@@ -263,6 +264,7 @@ Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'mattn/emmet-vim'
 Bundle 'groenewege/vim-less'
 Bundle 'heavenshell/vim-jsdoc'
+Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -388,6 +390,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
+nmap <F6> :ProjectTreeToggle<CR>
 
 " UNITE
 nnoremap <C-p> :Unite file_rec/async<cr>
