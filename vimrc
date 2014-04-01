@@ -268,6 +268,7 @@ Bundle 'Shougo/vimfiler.vim'
 Bundle 'Shougo/vinarise.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'tsukkee/unite-tag'
+Bundle 'Shougo/unite-outline'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -310,6 +311,8 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 
 let g:vimshell_prompt='» '
+
+
 
 " tagbar conf"
 
@@ -411,10 +414,11 @@ nmap <F9> :VimFiler -buffer-name=explorer -split -winwidth=80 -toggle -no-quit<C
 nmap <F6> :ProjectTreeToggle<CR>
 
 " UNITE
-nnoremap <C-p> :Unite -no-split -start-insert file_rec/async<cr>
-nnoremap <M-p> :UniteWithCursorWord -no-split -start-insert file_rec/async<cr>
+nnoremap <C-p> :Unite -buffer-name=open -no-split -start-insert file_rec/async<cr>
+nnoremap <M-p> :UniteWithCursorWord -buffer-name=open -no-split -start-insert file_rec/async<cr>
 nnoremap <M-y> :Unite -no-split history/yank<cr>
-nnoremap <M-b> :Unite -no-split bookmark<cr>
+nnoremap <M-b> :Unite -buffer-name=bookmarks -no-split bookmark<cr>
+nnoremap <M-o> :Unite -buffer-name=outline outline<cr>
 nnoremap <M-S-b> :UniteBookmarkAdd %s<cr>
 nnoremap <space>/ :Unite -no-split grep:.<cr>
 nnoremap <space>s :Unite -no-split -quick-match buffer<cr>
