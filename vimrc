@@ -254,30 +254,24 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle 'lunaru/vim-less'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
 Bundle 'zhaocai/linepower.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'mattn/emmet-vim'
 Bundle 'groenewege/vim-less'
 Bundle 'heavenshell/vim-jsdoc'
 Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/vimfiler.vim'
 Bundle 'Shougo/vinarise.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'tsukkee/unite-tag'
-Bundle 'Shougo/unite-outline'
 
 " syntastic
 let g:syntastic_enable_signs=1
-
-" ycm
-let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " powerline
 " disable in terminal, fails
@@ -312,7 +306,10 @@ let g:vimfiler_safe_mode_by_default = 0
 
 let g:vimshell_prompt='» '
 
-
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 2
 
 " tagbar conf"
 
@@ -422,6 +419,9 @@ nnoremap <M-o> :Unite -buffer-name=outline outline<cr>
 nnoremap <M-S-b> :UniteBookmarkAdd %s<cr>
 nnoremap <space>/ :Unite -no-split grep:.<cr>
 nnoremap <space>s :Unite -no-split -quick-match buffer<cr>
+
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " ============== UI CONF ================
 
