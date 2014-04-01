@@ -263,6 +263,9 @@ Bundle 'heavenshell/vim-jsdoc'
 Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/neosnippet.vim'
+Bundle 'Shougo/neosnippet-snippets'
+Bundle 'honza/vim-snippets'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/vimfiler.vim'
@@ -310,6 +313,8 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 2
+
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " tagbar conf"
 
