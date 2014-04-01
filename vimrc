@@ -296,7 +296,8 @@ let g:unite_prompt='» '
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:unite_source_grep_command='ag'
-let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4'
+let g:unite_source_rec_async_command='ag --nocolor --nogroup --ignore="\.build*" --ignore="docs*" --ignore="npm_cache*" --ignore="node_modules*" --ignore="*\.min\.*" -g ""'
+let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore="\.build*" --ignore="docs*" --ignore="npm_cache*" --ignore="node_modules*" --ignore="*\.min\.*"'
 let g:unite_source_grep_recursive_opt=''
 
 let g:unite_force_overwrite_statusline = 0
@@ -393,9 +394,13 @@ nmap <F9> :NERDTreeToggle<CR>
 nmap <F6> :ProjectTreeToggle<CR>
 
 " UNITE
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <space>/ :Unite grep:.<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <C-p> :Unite -no-split -start-insert file_rec/async<cr>
+nnoremap <M-p> :UniteWithCursorWord -no-split -start-insert file_rec/async<cr>
+nnoremap <M-y> :Unite -no-split history/yank<cr>
+nnoremap <M-b> :Unite -no-split bookmark<cr>
+nnoremap <M-S-b> :UniteBookmarkAdd %s<cr>
+nnoremap <space>/ :Unite -no-split grep:.<cr>
+nnoremap <space>s :Unite -no-split -quick-match buffer<cr>
 
 " ============== UI CONF ================
 
