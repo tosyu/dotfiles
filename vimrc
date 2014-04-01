@@ -309,6 +309,8 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 
+let g:vimshell_prompt='» '
+
 " tagbar conf"
 
 let g:tagbar_type_css = {
