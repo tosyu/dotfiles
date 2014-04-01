@@ -253,7 +253,6 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
-Bundle 'scrooloose/nerdtree'
 Bundle 'lunaru/vim-less'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
@@ -265,6 +264,10 @@ Bundle 'mattn/emmet-vim'
 Bundle 'groenewege/vim-less'
 Bundle 'heavenshell/vim-jsdoc'
 Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+Bundle 'Shougo/vimfiler.vim'
+Bundle 'Shougo/vinarise.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'tsukkee/unite-tag'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -289,6 +292,7 @@ call unite#set_profile('files', 'smartcase', 1)
 call unite#custom#source('line,outline','matchers','matcher_fuzzy')
 
 let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_source_bookmark_directory='~/.vim/bookmarks'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
@@ -301,6 +305,9 @@ let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore="\.bui
 let g:unite_source_grep_recursive_opt=''
 
 let g:unite_force_overwrite_statusline = 0
+
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
 
 " tagbar conf"
 
@@ -334,7 +341,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufReadPost * :DetectIndent
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " ============== KEY MAPPINGS ===========
 
 " disable paste mode
@@ -353,6 +360,7 @@ map <leader>w :w!<cr>
 map <leader>cp :CtrlP<cr>
 map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
+map <leader>c :noh<cr>
 
 inoremap <F7> <C-O>za
 nnoremap <F7> za
@@ -378,6 +386,13 @@ map <leader>ba :1,1000 bd!<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
 
+" vimshell
+map <leader>s :VimShell -toggle<cr>
+map <leader>ss :VimShellPop -toggle<cr>
+map <leader>sc :VimShellCreate<cr>
+map <leader>sd :VimShellCurrentDir -toggle<cr>
+map <leader>sb :VimShellBufferDir -togger<cr>
+
 " tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -390,7 +405,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
+nmap <F9> :VimFiler -buffer-name=explorer -split -winwidth=80 -toggle -no-quit<CR>
 nmap <F6> :ProjectTreeToggle<CR>
 
 " UNITE
