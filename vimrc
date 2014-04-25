@@ -242,6 +242,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+Bundle 'nanotech/jellybeans.vim'
 Bundle 'vim-scripts/yaifa.vim'
 Bundle 'hallettj/jslint.vim'
 Bundle 'tpope/vim-fugitive'
@@ -467,5 +468,5 @@ else
 endif
 
 set background=dark
-colors solarized
+colors jellybeans
 
