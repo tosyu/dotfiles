@@ -137,7 +137,7 @@ if has('autocmd')
 endif
 
 " show invisible chars
-set lcs=tab:>\ ,trail:-,eol:$,nbsp:_
+set lcs=tab:»\ ,trail:.,eol:$,nbsp:_
 " set encoding to utf8 and default file type to unix
 
 set encoding=utf8 nobomb
@@ -169,12 +169,16 @@ set undofile
 " Indentation
 
 set autoindent
-set smartindent
-set smarttab
+
+"set autoindent
+"set smartindent
+"set smarttab
+"set shiftwidth=4
+"set softtabstop=4
+"set tabstop=4
+"set expandtab
 set shiftwidth=4
-set softtabstop=4
 set tabstop=4
-set expandtab
 
 filetype plugin on
 filetype indent on
@@ -243,12 +247,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'ciaranm/detectindent'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/molokai'
-Bundle 'Lokaltog/powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -275,13 +275,6 @@ Bundle 'tsukkee/unite-tag'
 
 " syntastic
 let g:syntastic_enable_signs=1
-
-" powerline
-" disable in terminal, fails
-if has("gui_running")
-  let g:Powerline_symbols = 'fancy'
-  set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-endif
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -312,7 +305,7 @@ let g:vimshell_prompt='» '
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 
@@ -322,12 +315,12 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -364,7 +357,6 @@ let g:tagbar_type_markdown = {
 " autocmd conf
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
-autocmd BufReadPost * :DetectIndent
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -437,6 +429,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :VimFiler -buffer-name=explorer -split -winwidth=80 -toggle -no-quit<CR>
 nmap <F6> :ProjectTreeToggle<CR>
+nmap <F5> :VimShell -toggle<CR>
 
 " UNITE
 nnoremap <C-p> :Unite -buffer-name=open -no-split -start-insert file_rec/async<cr>
@@ -473,5 +466,5 @@ else
 endif
 
 set background=dark
-colors molokai
+colors solarized
 
