@@ -245,6 +245,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'bling/vim-airline'
+Bundle 'mhinz/vim-signify'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'vim-scripts/yaifa.vim'
 Bundle 'hallettj/jslint.vim'
 Bundle 'tpope/vim-fugitive'
@@ -314,7 +316,7 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-let g:airline_theme=jellybeans
+let g:airline_theme="jellybeans"
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
