@@ -244,6 +244,7 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'bling/vim-airline'
 Bundle 'vim-scripts/yaifa.vim'
 Bundle 'hallettj/jslint.vim'
 Bundle 'tpope/vim-fugitive'
@@ -278,6 +279,7 @@ Bundle 'tsukkee/unite-tag'
 
 " syntastic
 let g:syntastic_enable_signs=1
+let g:syntastic_js_checkers = ['jshint']
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
