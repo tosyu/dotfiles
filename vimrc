@@ -1,3 +1,7 @@
+set nocompatible
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,/usr/share/vim/vimfiles/,/usr/share/vim/vim74,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after
+
+syntax on
 " =============== FUNCTION DEFS =====
 func! DeleteTrailingWS()
   exe "normal mz"
