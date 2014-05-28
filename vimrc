@@ -182,8 +182,8 @@ set autoindent
 "set softtabstop=4
 "set tabstop=4
 "set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 filetype plugin on
 filetype indent on
@@ -278,6 +278,7 @@ Bundle 'Shougo/vimfiler.vim'
 Bundle 'Shougo/vinarise.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'tsukkee/unite-tag'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -317,6 +318,10 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 let g:airline_theme="jellybeans"
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)

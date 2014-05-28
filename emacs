@@ -1,76 +1,86 @@
+;; autoload packages
+(require 'package)
+(package-initialize)
+;; add marmalade rep
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+;; enable mouse wheel
+(mouse-wheel-mode t)
+
+;; enable indent detection
+(dtrt-indent-mode 1)
+
+;; highlight current line
+(global-hl-line-mode 1)
+
+;; quit message
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; remove hash files
+(setq delete-auto-save-files t)
+
+;; dont remember sessions
+(setq auto-save-list-file-prefix nil)
+
+;; matching parenthesis
+(show-paren-mode t)
+
+;; set indent style
+(setq c-set-style 'k&r)
+
+;; follow symlinks
+(setq vc-follow-symlinks t)
+
+;; js
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq js2-highlight-level 3)
+
+;; yasnippet
+(yas-global-mode 1)
+;;; auto complete mod
+;;; should be loaded after yasnippet so that they can work together
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+;;; set the trigger key so that it can work together with yasnippet on tab key,
+;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
+;;; activate, otherwise, auto-complete will
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
+;; jshint
+;;(add-to-list 'load-path "~/.emacs.d/static/jshint-mode")
+;;(require 'flymake-jshint)
+;;(add-hook 'js-mode-hook
+;;    (lambda () (flymake-mode t)))
+
+;; modes
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wombat)))
- '(custom-safe-themes (quote ("301f218fa2357b2aa2a433e049f87e059c5ba2ad8b161634d758fbf007bf1d0a" default)))
- '(default-tab-width 4 t)
- '(kill-ring-max 99)
+ '(column-number-mode t)
+ '(custom-enabled-themes (quote (molokai)))
+ '(custom-safe-themes (quote ("0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" default)))
+ '(fringe-mode (quote (nil . 0)) nil (fringe))
+ '(inhibit-startup-screen t)
+ '(line-number-mode t)
+ '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(make-backup-files nil)
- '(tool-bar-mode nil))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tab-width 2)
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(add-to-list 'load-path "~/.emacs.d/")
-(put 'upcase-region 'disabled nil)
-(require 'package)
-(add-to-list 'package-archives 
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
-(package-initialize)
-(load-theme 'monokai t)
-(column-number-mode t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(global-linum-mode t)
-(setq frame-title-format
-	  '("emacs%@" (:eval (system-name)) ": " (:eval (if (buffer-file-name)
-	       (abbreviate-file-name (buffer-file-name))
-                  "%b")) " [%*]"))
-(defconst animate-n-steps 3) 
-  (defun emacs-reloaded ()
-    (animate-string (concat ";; Initialization successful, welcome to "
-  			  (substring (emacs-version) 0 16)
-			  ".")
-		  0 0)
-	(newline-and-indent)  (newline-and-indent))
-(add-hook 'after-init-hook 'emacs-reloaded)  
-(setq inhibit-startup-message t)
- 
- ;; BACKUPS
-(setq version-control t ;; Use version numbers for backups
-	kept-new-versions 16 ;; Number of newest versions to keep
-	kept-old-versions 2 ;; Number of oldest versions to keep
-	delete-old-versions t ;; Ask to delete excess backup versions?
-	backup-by-copying-when-linked t) ;; Copy linked files, don't rename.
-
-(defun force-backup-of-buffer ()
-    (let ((buffer-backed-up nil))
-      (backup-buffer)))
-
-(add-hook 'before-save-hook  'force-backup-of-buffer)
-
-(setq
-   backup-by-copying t      ; don't clobber symlinks
-   backup-directory-alist
-    '(("." . "~/.emacs.b"))    ; don't litter my fs tree
-   delete-old-versions t
-   kept-new-versions 6
-   kept-old-versions 2
-   version-control t)       ; use versioned backups
-
- ;; AUTODETECT TAB/SPACES
-
-;; (require 'guess-style)
-;;(autoload 'guess-style-set-variable "guess-style" nil t)
-;;(autoload 'guess-style-guess-variable "guess-style")
-;;(autoload 'guess-style-guess-all "guess-style" nil t)
-;;(add-hook 'c-mode-common-hook 'guess-style-guess-all)
-;;(global-guess-style-info-mode 1)
-(require 'dtrt-indent)
-(dtrt-indent-mode 1)
