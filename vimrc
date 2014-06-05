@@ -279,6 +279,8 @@ Bundle 'Shougo/vinarise.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'tsukkee/unite-tag'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'nyanhan/requirejs.vim'
+Bundle 'kshenoy/vim-signature'
 
 " syntastic
 let g:syntastic_enable_signs=1

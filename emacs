@@ -13,7 +13,7 @@
 (dtrt-indent-mode 1)
 
 ;; highlight current line
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 
 ;; quit message
 (fset 'yes-or-no-p 'y-or-n-p)
