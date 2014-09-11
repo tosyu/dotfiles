@@ -103,7 +103,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-set colorcolumn=70
+set colorcolumn=86
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -196,9 +196,21 @@ set linebreak    "Wrap lines at convenient points
 
 " Folds
 
-set foldmethod=manual   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10       "deepest fold is 3 levels
+set foldlevel=99
+set foldignore=
 set nofoldenable        "dont fold by default
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+let g:markdown_folding=1
 
 " Completion
 
@@ -231,7 +243,7 @@ endtry
 set viminfo^=%
 
 " tabline
-set showtabline=0
+set showtabline=1
 
 let g:EclimCompletionMethod = 'omnifunc'
 
@@ -281,6 +293,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'nyanhan/requirejs.vim'
 Bundle 'kshenoy/vim-signature'
 Bundle 'jaxbot/brolink.vim'
+Bundle 'tpope/vim-markdown'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -320,6 +333,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 let g:airline_theme="jellybeans"
+let g:ariline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -385,7 +400,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " disable paste mode
 map <leader>pp :setlocal paste!<cr>
 
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>g :vimgrep // **/*.*<left><left><left><left><left><left><left><left>
 map <leader><space> :vimgrep //<C-R>%<C-A><right><right><right><right><right><right><right><right><right>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>cc :botright cope<cr>
@@ -423,29 +438,33 @@ nmap <silent> <C-M-w> :Bclose<cr>
 map <leader>ba :1,1000 bd!<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
+nmap <silent> <C-right> :bnext<cr>
+nmap <silent> <C-left> :bprevious<cr>
 
-" vimshell
-map <leader>s :VimShell -toggle<cr>
-map <leader>ss :VimShellPop -toggle<cr>
-map <leader>sc :VimShellCreate<cr>
-map <leader>sd :VimShellCurrentDir -toggle<cr>
-map <leader>sb :VimShellBufferDir -togger<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
 
 " tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
-nmap <silent> <C-right> :tabnext<cr>
-nmap <silent> <C-left> :tabprevious<cr>
 " opens new tab with current buffer
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :VimFiler -buffer-name=explorer -split -winwidth=80 -toggle -no-quit<CR>
-nmap <F6> :ProjectTreeToggle<CR>
-nmap <F5> :VimShell -toggle<CR>
 
 " UNITE
 nnoremap <C-p> :Unite -buffer-name=open -no-split -start-insert file_rec/async<cr>
