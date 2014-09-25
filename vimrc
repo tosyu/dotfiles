@@ -130,6 +130,7 @@ set showmatch
 set noerrorbells
 set novisualbell
 set lazyredraw
+set ttyfast
 set showmatch
 set mat=2
 set t_vb=
@@ -294,6 +295,8 @@ Bundle 'nyanhan/requirejs.vim'
 Bundle 'kshenoy/vim-signature'
 Bundle 'jaxbot/brolink.vim'
 Bundle 'tpope/vim-markdown'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'adragomir/javacomplete'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -500,6 +503,7 @@ else
   let g:solarized_termtrans=1
 endif
 
+set t_Co=256
 set background=dark
 colors jellybeans
 
