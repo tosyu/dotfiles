@@ -80,3 +80,5 @@ export PATH="/home/tosyu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+fortune

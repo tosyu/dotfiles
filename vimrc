@@ -259,6 +259,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
+Bundle "leafgarland/typescript-vim"
 Bundle 'gmarik/vundle'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'bling/vim-airline'
@@ -297,6 +298,7 @@ Bundle 'jaxbot/brolink.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'adragomir/javacomplete'
+Bundle 'jamessan/vim-gnupg'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -417,11 +419,14 @@ map <leader>cp :CtrlP<cr>
 map <leader>cpb :CtrlPBuffer<cr>
 map <leader>cpm :CtrlPMixed<cr>
 map <leader>c :noh<cr>
+map <leader>t :call DeleteTrailingWS()<cr>
 
 inoremap <F7> <C-O>za
 nnoremap <F7> za
 onoremap <F7> <C-C>za
 vnoremap <F7> zf
+map <F2> :tabprevious<CR>
+map <F3> :tabnext<CR>
 
 map <leader>e :Errors<cr>
 
