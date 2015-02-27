@@ -213,19 +213,19 @@ let xml_syntax_folding=1      " XML
 let g:markdown_folding=1
 
 " Completion
-
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~,*.pyc "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+" 
+" set wildmode=list:longest
+" set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+" set wildignore=*.o,*.obj,*~,*.pyc "stuff to ignore when tab completing
+" set wildignore+=*vim/backups*
+" set wildignore+=*sass-cache*
+" set wildignore+=*DS_Store*
+" set wildignore+=vendor/rails/**
+" set wildignore+=vendor/cache/**
+" set wildignore+=*.gem
+" set wildignore+=log/**
+" set wildignore+=tmp/**
+" set wildignore+=*.png,*.jpg,*.gif
 
 " Scrolling
 
@@ -245,51 +245,51 @@ set viminfo^=%
 " tabline
 set showtabline=1
 
-let g:EclimCompletionMethod = 'omnifunc'
-
 " vundle
 
-if has("win32") || has("win64")
-  set rtp+=~/nvimfiles/bundle/vundle
-else
-  set rtp+=~/.nvim/bundle/vundle/
-endif
-call vundle#rc()
+call plug#begin('~/.nvim/plugged')
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
-Bundle "leafgarland/typescript-vim"
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'bling/vim-airline'
-Bundle 'mhinz/vim-signify'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'vim-scripts/yaifa.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/molokai'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/syntastic'
-Bundle 'heavenshell/vim-jsdoc'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'honza/vim-snippets'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/unite-outline'
-Bundle 'Shougo/vimfiler.vim'
-Bundle 'Shougo/vinarise.vim'
-Bundle 'tsukkee/unite-tag'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'nyanhan/requirejs.vim'
-Bundle 'kshenoy/vim-signature'
-Bundle 'tpope/vim-markdown'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'valloric/youcompleteme'
-Bundle 'marijnh/tern_for_vim'
+Plug 'gmarik/vundle'
+Plug "leafgarland/typescript-vim"
+Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/yaifa.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/molokai'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'honza/vim-snippets'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/vinarise.vim'
+Plug 'tsukkee/unite-tag'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nyanhan/requirejs.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-markdown'
+Plug 'jamessan/vim-gnupg'
+Plug 'valloric/youcompleteme', { 'do': './install.sh --clang-completer' }
+Plug 'marijnh/tern_for_vim'
+Plug 'davidhalter/jedi-vm'
+
+call plug#end()
 
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_js_checkers = ['jshint']
+
+" ycm
+set completeopt-=preview
+let g:ycm_global_extra_conf = '~/.nvim/.ycm_extra_conf.py'
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -376,12 +376,6 @@ let g:tagbar_type_markdown = {
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " ============== KEY MAPPINGS ===========
 
 " disable paste mode
@@ -465,10 +459,6 @@ nnoremap <M-o> :Unite -buffer-name=outline outline<cr>
 nnoremap <M-S-b> :UniteBookmarkAdd %s<cr>
 nnoremap <space>/ :Unite -no-split grep:.<cr>
 nnoremap <space>s :Unite -no-split -quick-match buffer<cr>
-
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
 " ============== UI CONF ================
 
 if has("gui_running")
