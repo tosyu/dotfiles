@@ -252,7 +252,7 @@ call plug#begin('~/.nvim/plugged')
 " let Vundle manage Vundle
 " required!
 Plug 'gmarik/vundle'
-Plug "leafgarland/typescript-vim"
+Plug 'leafgarland/typescript-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-signify'
