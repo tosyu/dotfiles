@@ -1,6 +1,5 @@
 set nocompatible
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,/usr/share/vim/vimfiles/,/usr/share/vim/vim74,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after
-
+set runtimepath=~/.nvim,$VIM/runtime
 syntax on
 " =============== FUNCTION DEFS =====
 func! DeleteTrailingWS()
@@ -84,14 +83,14 @@ set nocompatible
 filetype off
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
+" source ~/.nvimrc.before if it exists.
 if has("win32") || has("win64") 
-  if filereadable(expand("~/_vimrc.before"))
-    source ~/.vimrc.before
+  if filereadable(expand("~/_nvimrc.before"))
+    source ~/.nvimrc.before
   endif
 else
-  if filereadable(expand("~/.vimrc.before"))
-    source ~/.vimrc.before
+  if filereadable(expand("~/.nvimrc.before"))
+    source ~/.nvimrc.before
   endif
 endif
 
@@ -164,11 +163,11 @@ set nowb
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has("win32") || has("win64")
-  silent !mkdir ~/vimfiles/backups > /dev/null 2>&1
-  set undodir=~/vimfiles/backups
+  silent !mkdir ~/nvimfiles/backups > /dev/null 2>&1
+  set undodir=~/nvimfiles/backups
 else
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
+  silent !mkdir ~/.nvim/backups > /dev/null 2>&1
+  set undodir=~/.nvim/backups
 endif
 set undofile
 
@@ -251,9 +250,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 " vundle
 
 if has("win32") || has("win64")
-  set rtp+=~/vimfiles/bundle/vundle
+  set rtp+=~/nvimfiles/bundle/vundle
 else
-  set rtp+=~/.vim/bundle/vundle/
+  set rtp+=~/.nvim/bundle/vundle/
 endif
 call vundle#rc()
 
@@ -298,8 +297,8 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#profile('files', 'context.smartcase', 1)
 call unite#custom#source('line,outline','matchers','matcher_fuzzy')
 
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_source_bookmark_directory='~/.vim/bookmarks'
+let g:unite_data_directory='~/.nvim/.cache/unite'
+let g:unite_source_bookmark_directory='~/.nvim/bookmarks'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
@@ -319,11 +318,6 @@ let g:vimfiler_safe_mode_by_default = 0
 let g:vimshell_prompt='» '
 
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-let g:neosnippet#enable_snipmate_compatibility = 1
 
 let g:airline_theme="jellybeans"
 let g:ariline#extensions#tabline#enabled = 1
