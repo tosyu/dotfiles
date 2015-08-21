@@ -286,10 +286,13 @@ call plug#end()
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_js_checkers = ['jshint']
+let g:syntastic_asm_dialect = 'intel'
 
 " ycm
 set completeopt-=preview
 let g:ycm_global_extra_conf = '~/.nvim/.ycm_extra_conf.py'
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -481,6 +484,15 @@ else
 endif
 
 set t_Co=256
-set background=dark
 colors jellybeans
+hi Normal ctermbg=none
+highlight SignColumn guibg=none ctermbg=none
+highlight LineNr ctermbg=none
+highlight NonText ctermbg=none
+highlight GitGutterAd guibg=none
+highlight GitGutterChange guibg=none
+highlight GitGutterDelete guibg=none
+highlight GitGutterDelete guibg=none
+highlight GitGutterChangeDelete guibg=none
+
 

@@ -291,6 +291,7 @@ Bundle 'marijnh/tern_for_vim'
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_js_checkers = ['jshint']
+let g:syntastic_asm_dialect = 'intel'
 
 " unite conf
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
