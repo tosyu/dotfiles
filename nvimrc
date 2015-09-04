@@ -272,7 +272,6 @@ Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vinarise.vim'
 Plug 'tsukkee/unite-tag'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nyanhan/requirejs.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-markdown'
@@ -495,4 +494,7 @@ highlight GitGutterDelete guibg=none
 highlight GitGutterDelete guibg=none
 highlight GitGutterChangeDelete guibg=none
 
-
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
