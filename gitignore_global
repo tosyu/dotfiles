@@ -1,0 +1,9 @@
+# NetBeans project files
+nbproject
+.projectile
+.dir-locals.el
+.vimrc
+.netrwhist
+TAGS
+
+
