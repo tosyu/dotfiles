@@ -45,7 +45,7 @@ ZSH_THEME="wezm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-prompt git-extras mvn tmux tmuxinator sudo grep common-aliases compleat svn-fast-info)
+plugins=(git gitfast git-prompt git-extras mvn sudo grep common-aliases compleat svn-fast-info)
 
 export ZSH_TMUX_AUTOSTART=true
 
