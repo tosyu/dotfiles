@@ -85,6 +85,8 @@ export PATH="/home/tosyu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export TERM="screen-256color"
+
 foregroundT() { fg; }
 zle -N foregroundT
 bindkey '^a' foregroundT
