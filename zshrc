@@ -81,7 +81,6 @@ export PATH="/home/tosyu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-fortune
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
