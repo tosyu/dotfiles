@@ -87,6 +87,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export TERM="screen-256color"
 
+source $HOME/.zsh_aliases
+
 foregroundT() { fg; }
 zle -N foregroundT
 bindkey '^a' foregroundT

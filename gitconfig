@@ -1,0 +1,42 @@
+[color]
+    branch = auto
+	diff = true
+	interactive = true
+	status = true
+	ui = true
+[core]
+		excludesFile = ~/.gitignore_global
+		page = 
+	pager = less
+[alias]
+    co = checkout
+    st = status
+    cp = cherry-pick
+    br = branch
+    l = log
+    todo = grep -n TODO
+    fix = grep -n FIX
+    sync = fetch --all
+    up = pull --ff-only --rebase
+    graph = log --graph --oneline --decorate --all
+    s = status -s
+    last-change-files = diff --stat HEAD^..HEAD
+    last-change = log -1 --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%Cgreen%an\\ <%ae>\\ %Creset%s" --decorate
+    last-change-committer = log -1 --pretty=format:"Author:\\ %Cred%an\\ <%ae>\\ %CresetCommitter:\\ %Cgreen%cn\\ <%ce>" --decorate
+    last-change-parent = log -1 --pretty=format:"Parent:\\ %Cgreen%P%Creset\\ " --decorate
+    last-change-patch = log -1 -p --color=always
+    purge-local-branches = branch -D `git branch -l | grep -v \\* | xargs`
+[diff]
+    renames = true
+    renameLimit = 50000
+		tool = vimdiff
+[gui]
+    fontdiff = -family Courier -size 14 -weight normal -slant roman -underline 0 -overstrike 0
+    commitmsgwidth = 80
+[merge]
+    tool = vimdiff    
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+[difftool]
+    prompt = false
