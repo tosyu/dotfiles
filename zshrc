@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="wezm"
+ZSH_THEME="simple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,9 +45,24 @@ ZSH_THEME="wezm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-prompt git-extras mvn sudo grep common-aliases compleat svn-fast-info)
+plugins=(
+	git
+	gitfast
+	git-prompt
+	git-extras
+	mvn
+	sudo
+	grep
+	common-aliases
+	compleat
+	svn-fast-infoi
+	npm
+	cd-gitroot
+	zsh-colors
+	zsh-completion-generator
+)
 
-export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,6 +101,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export TERM="screen-256color"
+export EDITOR="vim"
 
 source $HOME/.zsh_aliases
 

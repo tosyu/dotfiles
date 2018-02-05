@@ -1,2 +1,11 @@
-alias less='less -R'
+alias zsh_aliases="$EDITOR ~/.zsh_aliases"
+
+alias less='less -R -X'
+alias grep='grep -color'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}'
+
+alias help='man'
+
+alias rcp="rsync -avzhP"
+alias rcpr="rsync_cp -r"
 
