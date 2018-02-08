@@ -26,6 +26,8 @@
     last-change-parent = log -1 --pretty=format:"Parent:\\ %Cgreen%P%Creset\\ " --decorate
     last-change-patch = log -1 -p --color=always
     purge-local-branches = branch -D `git branch -l | grep -v \\* | xargs`
+	unstage = reset HEAD --
+	review = "!git push origin HEAD:refs/for/$1 #"
 [diff]
     renames = true
     renameLimit = 50000
