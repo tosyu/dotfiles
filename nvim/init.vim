@@ -273,6 +273,9 @@ map <leader>e :Errors<cr>
 " toggle special chars
 map <leader>h :call MakeHiddenCharsVisible()<cr>
 
+" write with sudo
+map <leader>sw :w !sudo tee %<CR>
+
 " buffers
 map <C-j> <C-W>j
 map <C-k> <C-W>k
