@@ -286,8 +286,12 @@ nmap <silent> <C-M-w> :Bclose<cr>
 map <leader>ba :bufdo bd!<cr>
 map <leader>bn :bnext<cr>
 map <leader>bp :bprevious<cr>
-nmap <silent> <C-right> :bnext<cr>
-nmap <silent> <C-left> :bprevious<cr>
+" nmap <silent> <C-right> :bnext<cr>
+" nmap <silent> <C-left> :bprevious<cr>
+nmap <silent> <C-h> :bprevious<CR>
+nmap <silent> <C-l> :bnext<CR>
+nmap <silent> <C-j> :tabprev<CR>
+nmap <silent> <C-k> :tabnext<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -314,6 +318,13 @@ map <leader>tj :tabedit <cfile><cr>
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" hardmode, disable ARROWS
+" learn hjkl godd dammit!
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 
 " autocmd conf
