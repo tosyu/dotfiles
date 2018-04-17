@@ -324,10 +324,10 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " hardmode, disable ARROWS
 " learn hjkl godd dammit!
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
 
 
 " autocmd conf

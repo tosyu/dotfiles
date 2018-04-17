@@ -4,7 +4,7 @@ alias nvimrc="vimrc"
 alias lvimrc="$EDITOR ./.vimrc"
 
 alias less='less -R -X'
-alias grep='grep -color'
+alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}'
 
 alias help='man'
