@@ -335,7 +335,10 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
-colorscheme wombat256i
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+set background=dark
+colorscheme solarized
 
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
