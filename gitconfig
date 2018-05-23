@@ -1,13 +1,13 @@
 [color]
     branch = auto
-	diff = true
-	interactive = true
-	status = true
-	ui = true
+    diff = true
+    interactive = true
+    status = true
+    ui = true
 [core]
-		excludesFile = ~/.gitignore_global
-		page = 
-	pager = less -X
+    excludesFile = ~/.gitignore_global
+    page = 
+    pager = less -X
 [alias]
     co = checkout
     st = status
@@ -26,12 +26,13 @@
     last-change-parent = log -1 --pretty=format:"Parent:\\ %Cgreen%P%Creset\\ " --decorate
     last-change-patch = log -1 -p --color=always
     purge-local-branches = branch -D `git branch -l | grep -v \\* | xargs`
-	unstage = reset HEAD --
-	review = "!git push origin HEAD:refs/for/$1 #"
+    unstage = reset HEAD --
+    review = "!git push origin HEAD:refs/for/$1 #"
+    pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
 [diff]
     renames = true
     renameLimit = 50000
-		tool = vimdiff
+    tool = vimdiff
 [gui]
     fontdiff = -family Courier -size 14 -weight normal -slant roman -underline 0 -overstrike 0
     commitmsgwidth = 80

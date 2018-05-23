@@ -1,3 +1,7 @@
+function rmd() {
+	pandoc "$1" | lynx -stdin
+}
+
 alias zsh_aliases="$EDITOR ~/.zsh_aliases"
 alias vimrc="$EDITOR ~/.config/nvim/init.vim"
 alias nvimrc="vimrc"
