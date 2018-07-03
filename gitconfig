@@ -28,7 +28,7 @@
     purge-local-branches = branch -D `git branch -l | grep -v \\* | xargs`
     unstage = reset HEAD --
     review = "!git push origin HEAD:refs/for/$1 #"
-    pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
+    pr = "!f() { git fetch upstream refs/pull/$1/head:pr/$1; git checkout pr/$1; } ; f"
 [diff]
     renames = true
     renameLimit = 50000

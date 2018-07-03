@@ -338,7 +338,7 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
