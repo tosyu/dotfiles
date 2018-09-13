@@ -79,6 +79,25 @@ endfunction
 set nocompatible
 filetype off
 
+call plug#begin('~/.config/nvim/plugged')
+	if has('nvim')
+		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	else
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	endif
+	Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+  Plug 'Shougo/denite.nvim'
+	Plug 'w0rp/ale'
+	Plug 'mxw/vim-jsx'
+	Plug 'leshill/vim-json'
+	Plug 'zchee/deoplete-jedi'
+	Plug 'mhartington/nvim-typescript'
+	Plug 'nanotech/jellybeans.vim'
+call plug#end()
+
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
 if has("win32") || has("win64") 
@@ -343,24 +362,7 @@ colorscheme jellybeans
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
 
-" syntastic conf
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ale_sign_column_always = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_aggregate_errors = 1
-
-
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-    let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-    let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+let g:deoplete#enable_at_startup = 1
 
