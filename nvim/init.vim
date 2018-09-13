@@ -94,7 +94,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
 	Plug 'zchee/deoplete-jedi'
-	Plug 'mhartington/nvim-typescript'
 	Plug 'nanotech/jellybeans.vim'
 	Plug 'othree/javascript-libraries-syntax.vim'
 	Plug 'SirVer/ultisnips'
@@ -107,6 +106,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'cakebaker/scss-syntax.vim'
 	Plug 'shmargum/vim-sass-colors'
 	Plug 'tpope/vim-fugitive'
+	Plug 'mhartington/vim-angular2-snippets'
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+	Plug 'wellle/tmux-complete.vim'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -378,3 +380,5 @@ let g:ale_sign_column_always = 1
 let g:deoplete#enable_at_startup = 1
 
 let g:used_javascript_libs = ''
+
+call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
