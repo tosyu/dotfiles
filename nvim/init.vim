@@ -96,6 +96,17 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'zchee/deoplete-jedi'
 	Plug 'mhartington/nvim-typescript'
 	Plug 'nanotech/jellybeans.vim'
+	Plug 'othree/javascript-libraries-syntax.vim'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'matthewsimo/angular-vim-snippets'
+	Plug 'claco/jasmine.vim'
+	Plug 'burnettk/vim-angular'
+	Plug 'ap/vim-css-color'
+	Plug 'groenewege/vim-less'
+	Plug 'cakebaker/scss-syntax.vim'
+	Plug 'shmargum/vim-sass-colors'
+	Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -366,3 +377,4 @@ let g:ale_sign_column_always = 1
 
 let g:deoplete#enable_at_startup = 1
 
+let g:used_javascript_libs = ''
