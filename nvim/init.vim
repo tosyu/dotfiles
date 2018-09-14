@@ -80,6 +80,7 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
+if has("python")
 	if has('nvim')
 		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	else
@@ -87,16 +88,21 @@ call plug#begin('~/.config/nvim/plugged')
 		Plug 'roxma/nvim-yarp'
 		Plug 'roxma/vim-hug-neovim-rpc'
 	endif
-	Plug 'HerringtonDarkholme/yats.vim'
+	Plug 'wellle/tmux-complete.vim'
   Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   Plug 'Shougo/denite.nvim'
+	Plug 'zchee/deoplete-jedi'
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+	Plug 'SirVer/ultisnips'
+endif
+if v:version >= 800
 	Plug 'w0rp/ale'
+endif
+	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
-	Plug 'zchee/deoplete-jedi'
 	Plug 'nanotech/jellybeans.vim'
 	Plug 'othree/javascript-libraries-syntax.vim'
-	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	Plug 'matthewsimo/angular-vim-snippets'
 	Plug 'claco/jasmine.vim'
@@ -107,8 +113,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'shmargum/vim-sass-colors'
 	Plug 'tpope/vim-fugitive'
 	Plug 'mhartington/vim-angular2-snippets'
-	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-	Plug 'wellle/tmux-complete.vim'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -381,4 +385,7 @@ let g:deoplete#enable_at_startup = 1
 
 let g:used_javascript_libs = ''
 
-call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+if has("python")
+	call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+endif
+
