@@ -117,6 +117,8 @@ endif
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'MarcWeber/vim-addon-local-vimrc'
   Plug 'airblade/vim-gitgutter'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -336,6 +338,9 @@ nmap <silent> <C-l> :bnext<CR>
 nmap <silent> <C-j> :tabprev<CR>
 nmap <silent> <C-k> :tabnext<CR>
 
+map <silent> <C-p> :Denite buffer file/rec<CR>
+map <silent> <C-M-p> :DeniteProjectDir buffer file/rec<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -375,11 +380,9 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
 set background=dark
 colorscheme jellybeans
-
+let g:airline_theme='jellybeans'
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
 
