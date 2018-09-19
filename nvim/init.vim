@@ -116,6 +116,7 @@ endif
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'MarcWeber/vim-addon-local-vimrc'
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -391,4 +392,10 @@ let g:used_javascript_libs = ''
 if has("python")
 	call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 endif
+
+let g:ale_sign_error = 'X'
+let g:ale_sign_Warn = '!'
+
+highlight ALEWarningSign ctermfg=Yellow  ctermbg=None
+highlight ALEErrorSign ctermfg=Red ctermbg=None 
 
