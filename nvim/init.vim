@@ -109,6 +109,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mhartington/vim-angular2-snippets'
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 	Plug 'wellle/tmux-complete.vim'
+	Plug 'MarcWeber/vim-addon-local-vimrc'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
