@@ -97,7 +97,6 @@ export PATH="/home/tosyu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export TERM="screen-256color"
 export EDITOR="vim"
 
 source $HOME/.zsh_aliases
@@ -105,4 +104,7 @@ source $HOME/.zsh_aliases
 foregroundT() { fg; }
 zle -N foregroundT
 bindkey '^a' foregroundT
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
 
