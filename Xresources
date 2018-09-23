@@ -12,6 +12,7 @@ URxvt.locale: true
 URxvt.saveLines: 4096
 URxvt.borderWidth: 0
 URxvt.scrollBar: false
+URxvt.loginShell: true
 URxvt.scrollTtyKeypress: true
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: false
