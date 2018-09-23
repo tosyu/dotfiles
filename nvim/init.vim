@@ -105,7 +105,6 @@ endif
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
-	Plug 'nanotech/jellybeans.vim'
 	Plug 'othree/javascript-libraries-syntax.vim'
 	Plug 'honza/vim-snippets'
 	Plug 'matthewsimo/angular-vim-snippets'
@@ -121,6 +120,11 @@ endif
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'lilydjwg/colorizer'
+
+	" color schemes
+	Plug 'morhetz/gruvbox'
+	Plug 'nanotech/jellybeans.vim'
+	Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -379,8 +383,8 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 set background=dark
-colorscheme jellybeans
-let g:airline_theme='jellybeans'
+colorscheme gruvbox
+"let g:airline_theme='jellybeans'
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
 
