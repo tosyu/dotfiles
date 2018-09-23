@@ -288,8 +288,6 @@ set showtabline=1
 " disable paste mode
 map <leader>pp :setlocal paste!<cr>
 
-map <leader>g :grep -R "" .<left><left><left>
-map <leader><space> :grep "" %<left><left><left>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
@@ -338,8 +336,6 @@ nmap <silent> <C-l> :bnext<CR>
 nmap <silent> <C-j> :tabprev<CR>
 nmap <silent> <C-k> :tabnext<CR>
 
-map <silent> <C-p> :Denite buffer file/rec<CR>
-map <silent> <C-M-p> :DeniteProjectDir buffer file/rec<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -394,6 +390,35 @@ let g:used_javascript_libs = ''
 
 if has("python")
 	call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+endif
+
+" silver searcher config
+if executable('ag')
+
+		" as grep
+		" set grepprg=ag\ --nogroup\ --nocolor
+		set grepprg=ag\ --vimgrep\ $*
+		set grepformat=%f:%l:%c:%m
+		map <leader>g :grep "" <left><left>
+		map <leader><space> :grep "" %<left><left><left>
+
+		map <silent> <C-p> :DeniteProjectDir -buffer-name=git -direction=top buffer file_rec/git<CR>
+		map <silent> <C-M-p> :DeniteProjectDir buffer -buffer-name=files -direction=top file_rec<CR>
+
+		" denite ag conf
+    if has('python')
+        call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
+        call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+        call denite#custom#var('file_rec/git', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    endif
+else
+	" default for denite
+	map <silent> <C-p> :Denite buffer file/rec<CR>
+	map <silent> <C-M-p> :DeniteProjectDir buffer file/rec<CR>
+
+	" default for grep
+	map <leader>g :grep -R "" .<left><left><left>
+	map <leader><space> :grep "" %<left><left><left>
 endif
 
 let g:ale_sign_error = 'X'
