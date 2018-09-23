@@ -288,8 +288,8 @@ set showtabline=1
 " disable paste mode
 map <leader>pp :setlocal paste!<cr>
 
-map <leader>g :vimgrep // **/*.*<left><left><left><left><left><left><left><left>
-map <leader><space> :vimgrep // <C-R>%<C-A><C-left><C-left><right>
+map <leader>g :grep -R "" .<left><left><left>
+map <leader><space> :grep "" %<left><left><left>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
