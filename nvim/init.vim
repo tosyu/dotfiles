@@ -105,6 +105,7 @@ endif
 if executable('ctags')
 	Plug 'majutsushi/tagbar'
 endif
+	Plug 'craigemery/vim-autotag'
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
@@ -135,7 +136,7 @@ call plug#end()
 if has("win32") || has("win64")
   if filereadable(expand("~/_vimrc.before"))
     source ~/.vimrc.before
-  endif
+endif
 else
   if filereadable(expand("~/.vimrc.before"))
     source ~/.vimrc.before
@@ -151,6 +152,8 @@ set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set colorcolumn=100
+
+set tags=./tags;,tags;
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
