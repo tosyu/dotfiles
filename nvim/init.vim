@@ -98,6 +98,10 @@ endif
 if v:version >= 800
 	Plug 'w0rp/ale'
 endif
+if executable('git')
+	Plug 'tpope/vim-fugitive'
+	Plug 'junegunn/gv.vim'
+endif
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
@@ -111,7 +115,6 @@ endif
 	Plug 'groenewege/vim-less'
 	Plug 'cakebaker/scss-syntax.vim'
 	Plug 'shmargum/vim-sass-colors'
-	Plug 'tpope/vim-fugitive'
 	Plug 'mhartington/vim-angular2-snippets'
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 	Plug 'wellle/tmux-complete.vim'
