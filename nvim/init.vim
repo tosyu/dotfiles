@@ -111,10 +111,8 @@ endif
 	Plug 'matthewsimo/angular-vim-snippets'
 	Plug 'claco/jasmine.vim'
 	Plug 'burnettk/vim-angular'
-	Plug 'ap/vim-css-color'
 	Plug 'groenewege/vim-less'
 	Plug 'cakebaker/scss-syntax.vim'
-	Plug 'shmargum/vim-sass-colors'
 	Plug 'mhartington/vim-angular2-snippets'
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 	Plug 'wellle/tmux-complete.vim'
@@ -122,6 +120,7 @@ endif
   Plug 'airblade/vim-gitgutter'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'lilydjwg/colorizer'
 call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
@@ -429,4 +428,6 @@ let g:ale_sign_Warn = '!'
 
 highlight ALEWarningSign ctermfg=Yellow  ctermbg=None
 highlight ALEErrorSign ctermfg=Red ctermbg=None 
+
+let g:colorizer_nomap = 1
 
