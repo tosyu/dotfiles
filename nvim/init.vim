@@ -384,6 +384,7 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 set background=dark
 colorscheme gruvbox
+set t_Co=256
 "let g:airline_theme='jellybeans'
 
 let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
