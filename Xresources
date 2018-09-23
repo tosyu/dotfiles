@@ -8,17 +8,12 @@ URxvt.local: true
 URxvt.locale: true
 URxvt.saveLines: 4096
 URxvt.borderWidth: 0
-URxvt.scrollbar: false
+URxvt.scrollBar: false
 URxvt.scrollTtyKeypress: true
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: false
 URxvt.scrollstyle: plain
 URxvt.secondaryScroll: true
-
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
-URxvt.urlLauncher: xdg-open
-URxvt.urlButton: 1
-URxvt.underlineURLs: True
 
 ! hard contrast: *background: #1d2021
 URxvt.background: #282828
