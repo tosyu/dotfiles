@@ -124,6 +124,7 @@ endif
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'lilydjwg/colorizer'
+	Plug 'Yilin-Yang/vim-markbar'
 
 	" color schemes
 	Plug 'morhetz/gruvbox'
@@ -443,4 +444,6 @@ highlight ALEErrorSign ctermfg=Red ctermbg=None
 let g:colorizer_nomap = 1
 
 nmap <F8> :TagbarToggle<CR>
+
+map <leader>m <Plug>ToggleMarkbar
 
