@@ -16,5 +16,5 @@ alias help='man'
 alias rcp="rsync -avzhP"
 alias rcpr="rsync_cp -r"
 
-alias tmux="tmux -f ~/.tmux.conf"
+alias tmux="tmux -2 -f ~/.tmux.conf"
 

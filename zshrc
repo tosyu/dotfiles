@@ -57,6 +57,7 @@ plugins=(
 	cd-gitroot
 	zsh-colors
 	zsh-completion-generator
+	taskwarrior
 )
 
 # export ZSH_TMUX_AUTOSTART=true
@@ -98,6 +99,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export EDITOR="vim"
+#export TERM="xterm-256color"
 
 source $HOME/.zsh_aliases
 
