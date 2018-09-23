@@ -417,7 +417,7 @@ else
 	map <silent> <C-M-p> :DeniteProjectDir buffer file/rec<CR>
 
 	" default for grep
-	map <leader>g :grep -R "" .<left><left><left>
+	map <leader>g :grep "" **/*<left><left><left><left><left><left>
 	map <leader><space> :grep "" %<left><left><left>
 endif
 
