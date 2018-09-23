@@ -102,6 +102,9 @@ if executable('git')
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/gv.vim'
 endif
+if executable('ctags')
+	Plug 'majutsushi/tagbar'
+endif
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mxw/vim-jsx'
 	Plug 'leshill/vim-json'
@@ -129,7 +132,7 @@ call plug#end()
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
-if has("win32") || has("win64") 
+if has("win32") || has("win64")
   if filereadable(expand("~/_vimrc.before"))
     source ~/.vimrc.before
   endif
@@ -432,7 +435,9 @@ let g:ale_sign_error = 'X'
 let g:ale_sign_Warn = '!'
 
 highlight ALEWarningSign ctermfg=Yellow  ctermbg=None
-highlight ALEErrorSign ctermfg=Red ctermbg=None 
+highlight ALEErrorSign ctermfg=Red ctermbg=None
 
 let g:colorizer_nomap = 1
+
+nmap <F8> :TagbarToggle<CR>
 
