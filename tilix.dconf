@@ -1,11 +1,13 @@
 [/]
 quake-height-percent=37
 quake-hide-lose-focus=false
-terminal-title-style='none'
+sidebar-on-right=false
+terminal-title-style='small'
 theme-variant='dark'
 quake-hide-headerbar=true
+enable-wide-handle=false
 warn-vte-config-issue=false
-window-style='disable-csd-hide-toolbar'
+window-style='disable-csd'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
 foreground-color='#EBDBB2'
@@ -22,3 +24,10 @@ bold-color-set=false
 font='Monospace 12'
 use-theme-colors=false
 background-color='#282828'
+background-transparency-percent=10
+
+[keybindings]
+app-shortcuts='<Primary><Alt>question'
+session-name='<Primary><Alt>n'
+app-new-window='<Primary><Shift><Alt>t'
+app-preferences='<Primary><Shift><Alt>p'
