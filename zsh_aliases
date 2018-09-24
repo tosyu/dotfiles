@@ -14,10 +14,17 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}'
 alias help='man'
 
 alias rcp="rsync -avzhP"
-alias rcpr="rsync_cp -r"
+alias rcpr="rcpr -r"
 
 alias tmux="tmux -2 -f ~/.tmux.conf"
 
 alias weather_warsaw="curl wttr.in/warsaw"
 alias weather_grodzisk="curl wttr.in/grodzisk-mazowiecki"
+
+alias df="df -h"
+alias du="du -h"
+
+alias tailf="tail -f"
+
+alias npmg="sudo npm -g"
 
