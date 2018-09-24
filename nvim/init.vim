@@ -124,7 +124,6 @@ endif
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'lilydjwg/colorizer'
-	Plug 'Yilin-Yang/vim-markbar'
 	Plug 'blindFS/vim-taskwarrior'
 
 	" color schemes
