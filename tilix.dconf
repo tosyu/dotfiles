@@ -1,0 +1,24 @@
+[/]
+quake-height-percent=37
+quake-hide-lose-focus=false
+terminal-title-style='none'
+theme-variant='dark'
+quake-hide-headerbar=true
+warn-vte-config-issue=false
+window-style='disable-csd-hide-toolbar'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#EBDBB2'
+visible-name='Domyślny'
+login-shell=true
+palette=['#282828', '#CC241D', '#98971A', '#D79921', '#458588', '#B16286', '#689D6A', '#BDAE93', '#7C6F64', '#FB4934', '#B8BB26', '#FABD2F', '#83A598', '#D3869B', '#8EC07C', '#EBDBB2']
+badge-color-set=false
+show-scrollbar=false
+cursor-shape='ibeam'
+cursor-colors-set=false
+highlight-colors-set=false
+use-system-font=false
+bold-color-set=false
+font='Monospace 12'
+use-theme-colors=false
+background-color='#282828'

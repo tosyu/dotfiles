@@ -1,86 +1,46 @@
-*termName: xterm-256color
-*scrollbar: False
-*scrollTtyOutput: False
-*rightScrollBar: True
-*saveLines: 4096
-*locale: True
-*utf8: True
-*utf8Title: True
-*renderFont: True
-*preeditType: Root
-*xftAntialias: True
-*trimSelection: True
-*loginShell: True
-*faceName: xft:Inconsolata:size=13:antialias=true
-*visualBell: True
-*cursorBlink: True
-*eightBitInput: False
-*metaSendsEscape: True
-*selectToClipboard: True
+UXTerm*termName: xterm-256color
+UXTerm*scrollbar: False
+UXTerm*scrollTtyOutput: False
+UXTerm*rightScrollBar: True
+UXTerm*saveLines: 4096
+UXTerm*locale: True
+UXTerm*utf8: True
+UXTerm*utf8Title: True
+UXTerm*renderFont: True
+UXTerm*preeditType: Root
+UXTerm*xftAntialias: True
+UXTerm*trimSelection: True
+UXTerm*loginShell: True
+UXTerm*faceName: xft:Inconsolata:size=13:antialias=true
+UXTerm*visualBell: True
+UXTerm*cursorBlink: True
+UXTerm*eightBitInput: False
+UXTerm*metaSendsEscape: True
+UXTerm*selectToClipboard: True
 
-*translations: #override \
+UXTerm*translations: #override \
 	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
 	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 
-*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+UXTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
 
 
-*background: #282828
-*foreground: #ebdbb2
-*color0:  #282828
-*color8:  #928374
-*color1:  #cc241d
-*color9:  #fb4934
-*color2:  #98971a
-*color10: #b8bb26
-*color3:  #d79921
-*color11: #fabd2f
-*color4:  #458588
-*color12: #83a598
-*color5:  #b16286
-*color13: #d3869b
-*color6:  #689d6a
-*color14: #8ec07c
-*color7:  #a89984
-*color15: #ebdbb2
-
-
-!----------------- URXVT ------------------------
-URxvt.font: xft:Inconsolata:size=11:antialias=true
-URxvt*termName: rxvt-unicode
-
-Xft*dpi: 96
-Xft*antialias: true
-Xft*hinting: full
-
-URxvt.local: true
-URxvt.locale: true
-URxvt.saveLines: 4096
-URxvt.borderWidth: 0
-URxvt.scrollBar: false
-URxvt.loginShell: true
-URxvt.scrollTtyKeypress: true
-URxvt.scrollTtyOutput: false
-URxvt.scrollWithBuffer: false
-URxvt.scrollstyle: plain
-URxvt.secondaryScroll: true
-
-URxvt.background: #282828
-URxvt.foreground: #ebdbb2
-URxvt.color0:  #282828
-URxvt.color8:  #928374
-URxvt.color1:  #cc241d
-URxvt.color9:  #fb4934
-URxvt.color2:  #98971a
-URxvt.color10: #b8bb26
-URxvt.color3:  #d79921
-URxvt.color11: #fabd2f
-URxvt.color4:  #458588
-URxvt.color12: #83a598
-URxvt.color5:  #b16286
-URxvt.color13: #d3869b
-URxvt.color6:  #689d6a
-URxvt.color14: #8ec07c
-URxvt.color7:  #a89984
-URxvt.color15: #ebdbb2
+UXTerm*background: #282828
+UXTerm*foreground: #ebdbb2
+UXTerm*color0:  #282828
+UXTerm*color8:  #928374
+UXTerm*color1:  #cc241d
+UXTerm*color9:  #fb4934
+UXTerm*color2:  #98971a
+UXTerm*color10: #b8bb26
+UXTerm*color3:  #d79921
+UXTerm*color11: #fabd2f
+UXTerm*color4:  #458588
+UXTerm*color12: #83a598
+UXTerm*color5:  #b16286
+UXTerm*color13: #d3869b
+UXTerm*color6:  #689d6a
+UXTerm*color14: #8ec07c
+UXTerm*color7:  #a89984
+UXTerm*color15: #ebdbb2
 
