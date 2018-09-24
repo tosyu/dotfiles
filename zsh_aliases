@@ -18,3 +18,6 @@ alias rcpr="rsync_cp -r"
 
 alias tmux="tmux -2 -f ~/.tmux.conf"
 
+alias weather_warsaw="curl wttr.in/warsaw"
+alias weather_grodzisk="curl wttr.in/grodzisk-mazowiecki"
+
