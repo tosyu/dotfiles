@@ -1,28 +1,28 @@
-XTerm*termName: xterm-256color
-XTerm*scrollbar: False
-XTerm*scrollTtyOutput: False
-XTerm*rightScrollBar: True
-XTerm*saveLines: 4096
-XTerm*locale: True
-XTerm*utf8: True
-XTerm*utf8Title: True
-XTerm*renderFont: True
-XTerm*preeditType: Root
-XTerm*xftAntialias: True
-XTerm*trimSelection: True
-XTerm*loginShell: True
-XTerm*faceName: xft:Inconsolata:size=11:antialias=true
-XTerm*visualBell: True
-XTerm*cursorBlink: True
-XTerm*eightBitInput: False
-XTerm*metaSendsEscape: True
-XTerm*selectToClipboard: True
+*termName: xterm-256color
+*scrollbar: False
+*scrollTtyOutput: False
+*rightScrollBar: True
+*saveLines: 4096
+*locale: True
+*utf8: True
+*utf8Title: True
+*renderFont: True
+*preeditType: Root
+*xftAntialias: True
+*trimSelection: True
+*loginShell: True
+*faceName: xft:Inconsolata:size=13:antialias=true
+*visualBell: True
+*cursorBlink: True
+*eightBitInput: False
+*metaSendsEscape: True
+*selectToClipboard: True
 
-XTerm*translations: #override \
+*translations: #override \
 	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
 	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 
-XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
 
 
 *background: #282828
