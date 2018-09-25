@@ -6,6 +6,7 @@ startup="$startup .screenlayout/startup.sh"
 startup="$startup .config/polybar/startup.sh"
 startup="$startup .config/i3/startup-nitrogen.sh"
 startup="$startup .config/i3/startup-numlockx.sh"
+startup="$startup .config/i3/startup-unclutter.sh"
 
 echo "Processing startup scripts"
 for script in ${startup}; do
