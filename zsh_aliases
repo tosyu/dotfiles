@@ -28,3 +28,5 @@ alias tailf="tail -f"
 
 alias npmg="sudo npm -g"
 
+alias nemo="nemo --no-desktop"
+
