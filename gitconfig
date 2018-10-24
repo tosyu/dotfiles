@@ -27,9 +27,6 @@
     last-change-patch = log -1 -p --color=always
     purge-local-branches = branch -D `git branch -l | grep -v \\* | xargs`
     unstage = reset HEAD --
-    review = "!git push origin HEAD:refs/for/$1 #"
-    pr = "!f() { git fetch upstream refs/pull/$1/head:pr/$1; git checkout pr/$1; } ; f"
-    setup = "!echo \"supply username\" && read username && echo \"supply email\" && read email && git config --local user.name \"$username\" && git config --local user.email \"$email\""
 [diff]
     renames = true
     renameLimit = 50000

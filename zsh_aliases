@@ -1,6 +1,35 @@
-function rmd() {
+function markdown_preview() {
 	pandoc "$1" | lynx -stdin
 }
+
+function git_fetch_pull_request() {
+    git fetch upstream refs/pull/$1/head
+    SUBJECT=$(git log --pretty='format:%s' -1 FETCH_HEAD | sed -e 's/\(.*\)/\L\1/g' | sed -e 's/\s\+/-/g' | sed -e 's/[^a-z0-9\-]*//g')
+    git checkout -b pr/$1/$SUBJECT FETCH_HEAD
+}
+
+function git_setup_repository() {
+    echo "Please supply username: "
+    read GIT_USERNAME
+    echo "Please supply e-mail: "
+    read GIT_EMAIL
+    echo $GIT_USERNAME
+    echo $GIT_EMAIL
+    git config --local user.name "$GIT_USERNAME"
+    git config --local user.email "$GIT_EMAIL"
+}
+
+function git_gerrit_request_review() {
+    git push origin HEAD:refs/for/$1
+}
+
+function weather() {
+    curl wttr.in/$1
+}
+
+alias git_pr="git_fetch_pull_request"
+alias git_setup="git_setup_repository"
+alias git_review="git_gerrit_request_review"
 
 alias zsh_aliases="$EDITOR ~/.zsh_aliases"
 alias vimrc="$EDITOR ~/.config/nvim/init.vim"
@@ -17,9 +46,6 @@ alias rcp="rsync -avzhP"
 alias rcpr="rcpr -r"
 
 alias tmux="tmux -2 -f ~/.tmux.conf"
-
-alias weather_warsaw="curl wttr.in/warsaw"
-alias weather_grodzisk="curl wttr.in/grodzisk-mazowiecki"
 
 alias df="df -h"
 alias du="du -h"
