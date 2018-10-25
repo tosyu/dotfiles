@@ -4,7 +4,7 @@ function markdown_preview() {
 
 function git_fetch_pull_request() {
     git fetch upstream refs/pull/$1/head
-    SUBJECT=$(git log --pretty='format:%s' -1 FETCH_HEAD | sed -e 's/\(.*\)/\L\1/g' | sed -e 's/\s\+/-/g' | sed -e 's/[^a-z0-9\-]*//g')
+    SUBJECT=$(git log --pretty='format:%s' -1 FETCH_HEAD | sed -e 's/\(.*\)/\L\1/g' -e 's/\s\+/-/g' -e 's/[^a-z0-9\-]*//g')
     git checkout -b pr/$1/$SUBJECT FETCH_HEAD
 }
 
