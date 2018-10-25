@@ -1,16 +1,8 @@
 #!/bin/sh
 cd ~
 
-startup=""
-startup="$startup .screenlayout/startup.sh"
-startup="$startup .config/polybar/startup.sh"
-startup="$startup .config/i3/startup-nitrogen.sh"
-startup="$startup .config/i3/startup-numlockx.sh"
-startup="$startup .config/i3/startup-unclutter.sh"
-startup="$startup .config/i3/startup-compton.sh"
-
 echo "Processing startup scripts"
-for script in ${startup}; do
+for script in $(ls -d ~/.config/i3/startup/*); do
 	SCR=$(readlink -f -- $script)
 	echo "Checking for $SCR"
 	if [ -x "$SCR" ]; then
