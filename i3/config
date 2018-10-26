@@ -165,3 +165,7 @@ workspace 2 output HDMI-2
 workspace 3 output HDMI-1
 
 focus_follows_mouse no
+
+bindsym $mod+Print --release exec --no-startup-id scrot -m -q '95 %Y-%m-%d_%H-%M-%S.png' -e 'mkdir -p ~/Shots/ && mv $f ~/Obrazy/'
+bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s -m -q '95 %Y-%m-%d_%H-%M-%S.png' -e 'mkdir -p ~/Shots/ && mv $f ~/Obrazy/'
+
