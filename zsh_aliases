@@ -1,3 +1,46 @@
+function mypass_get() {
+	LINE=$2
+	
+	if [ "$LINE" = "" ]; then
+		LINE=1
+	fi
+
+	cat ~/.mypass/$1.gpg | gpg -qd | sed $LINE!d | xclip -selection clipboard
+	echo "Password saved in clipboard"
+}
+
+function mypass_set() {
+	GPG_ACC=`cat ~/.mypass/.gpg`
+
+	if [ "$GPG_ACC" = "" ]; then
+		echo "No recipient found"
+		exit 1
+	fi
+
+	echo "Please type password, CTRL+D to save"
+	gpg -qear $GPG_ACC -o ~/.mypass/$1.gpg
+}
+
+function mypass_gen() {
+	GPG_ACC=`cat ~/.mypass/.gpg`
+
+	if [ "$GPG_ACC" = "" ]; then
+		echo "No recipient found"
+		exit 1
+	fi
+
+	NUM=$2
+	if [ "$NUM" = "" ]; then
+		NUM=16
+	fi
+
+	head /dev/urandom | tr -dc 'a-zA-Z0-9!@#$%^&*()-+' | head -c $NUM | gpg --no-tty -qear $GPG_ACC -o ~/.mypass/$1.gpg
+}
+
+function mypass_list() {
+	ls ~/.mypass/*.gpg
+}
+
 function markdown_preview() {
 	pandoc "$1" | lynx -stdin
 }
@@ -25,6 +68,13 @@ function git_gerrit_request_review() {
 
 function weather() {
     curl wttr.in/$1
+}
+
+function git_issue() {
+    echo "Please supply issuse topic: "
+    read ISSUE_TOPIC
+    TOPIC=$(echo $ISSUE_TOPIC | sed -e 's/\s\+/-/g' -e 's/[^a-zA-Z0-9\-]\+//gi' -e 's/\--*/-/g' -e 's/.*/\L&/g')
+    git checkout -b issue/$1-$TOPIC $2
 }
 
 alias git_pr="git_fetch_pull_request"
