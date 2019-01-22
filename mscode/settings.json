@@ -34,6 +34,7 @@
     "workbench.panel.defaultLocation": "right",
     "terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "window.menuBarVisibility": "toggle",
+    "editor.renderWhitespace": "boundary",
     "vim.debug.silent": true,
     "vim.handleKeys": {}
     "vim.enableNeovim": true,
@@ -144,13 +145,13 @@
             ]
         },
         {
-            "before": ["<leader>", "h"],
+            "before": ["<leader>", "k"],
             "commands": [
                 "workbench.action.previousEditor"
             ]
         },
         {
-            "before": ["<leader>", "l"],
+            "before": ["<leader>", "j"],
             "commands": [
                 "workbench.action.nextEditor"
             ]
