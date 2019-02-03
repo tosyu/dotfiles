@@ -135,7 +135,7 @@ GetScrollMode()
                     scrollMode = 2
             }
     }
-    else if (procName = "firefox.exe" or procName = "notepad.exe" or procName = "explorer.exe" or procName = "EXCEL.exe")
+    else if (procName = "EXCEL.exe")
         scrollMode = 2
     else
         scrollMode = 0
