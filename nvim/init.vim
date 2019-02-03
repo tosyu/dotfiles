@@ -83,13 +83,16 @@ endfunction
 call plug#begin('c:\nvim-plugged')
   Plug 'HerringtonDarkholme/yats.vim'
 
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-  Plug 'zchee/deoplete-jedi'
-  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-  Plug 'roxma/nvim-yarp'
+	Plug 'davidhalter/jedi'
+	Plug 'leafgarland/typescript-vim'
+	Plug 'mxw/vim-jsx'
+	Plug 'pangloss/vim-javascript'
+	Plug 'othree/javascript-libraries-syntax.vim'
+	Plug 'elzr/vim-json'
+	Plug 'groenewege/vim-less'
+  
+	Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
   Plug 'Shougo/denite.nvim'
   Plug 'w0rp/ale'
   
@@ -98,8 +101,6 @@ call plug#begin('c:\nvim-plugged')
   
   Plug 'majutsushi/tagbar'
   Plug 'MarcWeber/vim-addon-local-vimrc'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'lilydjwg/colorizer'
   " color schemes
   Plug 'morhetz/gruvbox'
@@ -119,9 +120,6 @@ else
   set undodir=~/.vim/backups
 endif
 
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
 
 if has('gui_running')
   set guifont=Consolas:h11
@@ -320,10 +318,25 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " update cwd to current buffers path
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" autocmd conf
+autocmd GUIEnter * set visualbell t_vb=
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+autocmd Filetype *
+        \ if &omnifunc == "" |
+        \   setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType typescript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType go set omnifunc=gocomplete#Complete
 
 set background=dark
 colorscheme gruvbox
@@ -333,20 +346,6 @@ let g:autotagDisabled=''
 let g:local_vimrc = {'names':['.vimproject'],'hash_fun':'LVRHashOfFile'}
 let g:ale_sign_column_always = 1
 let g:used_javascript_libs = ''
-
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-end
 
 " Completion
 set wildmode=list:longest
@@ -361,17 +360,6 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-
-if has("python")
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_auto_complete = 1
-  let g:deoplete#smart_case = 1
-  let g:deoplete#yarp = 1
-  if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-  endif
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-endif
 
 " silver searcher config
 if executable('ag')
