@@ -8,6 +8,7 @@
     excludesFile = ~/.gitignore_global
     page = 
     pager = less -X
+    autocrlf = false
 [alias]
     co = checkout
     st = status

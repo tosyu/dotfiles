@@ -156,7 +156,6 @@ set hid
 "turn on syntax highlighting
 syntax on
 
-
 set ruler
 set smartcase
 set ignorecase
@@ -175,6 +174,11 @@ set nomousehide
 set shellslash
 set mouse=a
 
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_winsize=25
+let g:netrw_altv=1
 
 " show invisible chars
 set lcs=tab:»\ ,trail:.,eol:$,nbsp:_
@@ -221,6 +225,8 @@ let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 let g:markdown_folding=1
 
+set signcolumn=yes
+
 " Scrolling
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -254,6 +260,8 @@ nmap <leader>Q :q<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>c :noh<cr>
 nmap <leader>t :call DeleteTrailingWS()<cr>
+
+nmap <leader>b :Lexplore<cr>
 
 inoremap <F7> <C-O>za
 nnoremap <F7> za
