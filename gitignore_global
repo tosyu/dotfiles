@@ -4,6 +4,8 @@ nbproject
 .projectile
 .dir-locals.el
 .vimrc
+_vimrc
+.vimproject
 .netrwhist
 .vscode
 .tern-port

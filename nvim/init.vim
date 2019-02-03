@@ -81,33 +81,22 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 call plug#begin('c:\nvim-plugged')
-Plug 'HerringtonDarkholme/yats.vim'
-if has("python")
+  Plug 'HerringtonDarkholme/yats.vim'
+
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'zchee/deoplete-jedi'
+  Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
-	Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-	Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
   Plug 'Shougo/denite.nvim'
-endif
-if v:version >= 800
   Plug 'w0rp/ale'
-endif
-if executable('git')
+  
   Plug 'tpope/vim-fugitive'
   Plug 'junegunn/gv.vim'
-endif
-if executable('ctags')
+  
   Plug 'majutsushi/tagbar'
-  Plug 'craigemery/vim-autotag'
-endif
-  Plug 'mxw/vim-jsx'
-  Plug 'leshill/vim-json'
-  Plug 'othree/javascript-libraries-syntax.vim'
-  Plug 'groenewege/vim-less'
-  Plug 'cakebaker/scss-syntax.vim'
   Plug 'MarcWeber/vim-addon-local-vimrc'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -333,26 +322,23 @@ colorscheme gruvbox
 set t_Co=256
 
 let g:autotagDisabled=''
-let g:local_vimrc = {'names':['.vimrc'],'hash_fun':'LVRHashOfFile'}
+let g:local_vimrc = {'names':['.vimproject'],'hash_fun':'LVRHashOfFile'}
 let g:ale_sign_column_always = 1
 let g:used_javascript_libs = ''
 
-" omnifuncs
-"augroup omnifuncs
-  "autocmd!
-  "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"augroup end
-" tern
-"if exists('g:plugs["tern_for_vim"]')
-  "let g:tern_show_argument_hints = 'on_hold'
-  "let g:tern_show_signature_in_pum = 1
-  "autocmd FileType javascript setlocal omnifunc=tern#Complete
-"end
-
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+end
 
 " Completion
 set wildmode=list:longest
@@ -369,15 +355,14 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
 if has("python")
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#enable_auto_complete = 1
-	let g:deoplete#smart_case = 1
-	let g:deoplete#yarp = 1
-	if !exists('g:deoplete#omni#input_patterns')
-		let g:deoplete#omni#input_patterns = {}
-	endif
-	autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-	"call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_auto_complete = 1
+  let g:deoplete#smart_case = 1
+  let g:deoplete#yarp = 1
+  if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+  endif
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 endif
 
 " silver searcher config
