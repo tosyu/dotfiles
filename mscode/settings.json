@@ -36,7 +36,7 @@
     "window.menuBarVisibility": "toggle",
     "editor.renderWhitespace": "boundary",
     "vim.debug.silent": true,
-    "vim.handleKeys": {}
+    "vim.handleKeys": {},
     "vim.enableNeovim": true,
     "vim.neovimPath": "C:\\tools\\neovim\\Neovim\bin\\nvim.exe",
     "vim.leader": " ",
