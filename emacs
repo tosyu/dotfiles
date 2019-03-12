@@ -1,86 +1,101 @@
-;; autoload packages
 (require 'package)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(setq package-enable-at-startup nil)
+(setq package-check-signature nil)
 (package-initialize)
-;; add marmalade rep
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-;; enable mouse wheel
-(mouse-wheel-mode t)
-
-;; enable indent detection
-(dtrt-indent-mode 1)
-
-;; highlight current line
-;; (global-hl-line-mode 1)
-
-;; quit message
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; remove hash files
-(setq delete-auto-save-files t)
-
-;; dont remember sessions
-(setq auto-save-list-file-prefix nil)
-
-;; matching parenthesis
-(show-paren-mode t)
-
-;; set indent style
-(setq c-set-style 'k&r)
-
-;; follow symlinks
-(setq vc-follow-symlinks t)
-
-;; js
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-(setq js2-highlight-level 3)
-
-;; yasnippet
-(yas-global-mode 1)
-;;; auto complete mod
-;;; should be loaded after yasnippet so that they can work together
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-;;; set the trigger key so that it can work together with yasnippet on tab key,
-;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
-;;; activate, otherwise, auto-complete will
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
-
-;; jshint
-;;(add-to-list 'load-path "~/.emacs.d/static/jshint-mode")
-;;(require 'flymake-jshint)
-;;(add-hook 'js-mode-hook
-;;    (lambda () (flymake-mode t)))
-
-;; modes
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-enabled-themes (quote (molokai)))
- '(custom-safe-themes (quote ("0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" default)))
- '(fringe-mode (quote (nil . 0)) nil (fringe))
- '(inhibit-startup-screen t)
- '(line-number-mode t)
- '(make-backup-files nil)
  '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
+ '(package-selected-packages
+   (quote
+    (ag helm-company counsel-projectile org-projectile-helm org-projectile gitconfig gitconfig-mode helm-git-grep helm-projectile company ansible csharp-mode docker docker-compose-mode flymake flymake-css flymake-json flymake-less flymake-python-pyflakes gruvbox-theme helm helm-ag js3-mode json-mode json-navigator magit magit-gitflow markdown-mode markdown-preview-mode org org-kanban python python-mode tide typescript-mode web-mode)))
+ '(safe-local-variable-values (quote ((css-indent-offset . 2))))
+ '(save-place nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(tab-width 2)
- '(tool-bar-mode nil)
- '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+
+;; some simple settings
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; theme & font
+(load-theme 'gruvbox t)
+
+(require 'magit)
+
+;; helm config
+(require 'helm-config)
+(require 'helm)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(helm-mode 1)
+
+;; projectile settings
+(defun projectile-get-ext-command() ""
+     (concat "C:\\Windows\\es.exe -r " 
+        (concat (replace-regexp-in-string "/" "\\\\" default-directory t t) 
+        ".+[^\\\\]\\.[^\\\\]+$ | tr '\\n' '\\0'"))
+     )
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-project-search-path '("C:/projects"))
+(setq projectile-indexing-method 'alien)
+(setq projectile-enable-caching nil)
+
+
+(put 'upcase-region 'disabled nil)
+
+;; tide conf
+(require 'tide)
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; company config
+(setq company-tooltip-align-annotations t)
+(setq company-idle-delay 0)
+(setq company-dabbrev-downcase nil)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; disable shitty indents
+(electric-indent-mode +1)
+
+;; flycheck
+(require 'flycheck)
+(global-flycheck-mode)
+
+;; line numbers
+(global-display-line-numbers-mode)
+
+;; custom keys
+(eval-after-load 'helm-projectile
+  '(define-key my-mode-map [helm-ag] 'helm-projectile-ag))
+
