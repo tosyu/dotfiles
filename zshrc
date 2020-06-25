@@ -50,13 +50,9 @@ plugins=(
 	gitfast
 	git-extras
 	sudo
-	grep
 	common-aliases
 	compleat
 	npm
-	cd-gitroot
-	zsh-colors
-	zsh-completion-generator
 	taskwarrior
 )
 
