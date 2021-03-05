@@ -94,6 +94,7 @@ call plug#begin('~/.nvim-plugged')
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'Shougo/denite.nvim'
     Plug 'w0rp/ale'
+    Plug 'zigford/vim-powershell'
 
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
