@@ -24,7 +24,7 @@ set clipboard+=unnamedplus
 
 set NERDTree
 
-let mapleader=" "
+let mapleader="\"
 
 :map <C-l> <Action>(NextTab)
 :map <C-h> <Action>(PreviousTab)
