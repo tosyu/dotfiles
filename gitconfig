@@ -1,15 +1,18 @@
+[core]
+	excludesfile = "~/.gitignore_global"
+	editor = vim 
+	preloadindex = true
+	fscache = true
+    page = 
+    pager = less -X
+	autocrlf = input
+	eol = lf
 [color]
     branch = auto
     diff = true
     interactive = true
     status = true
     ui = true
-[core]
-    excludesFile = ~/.gitignore_global
-    page = 
-    pager = less -X
-	autocrlf = false
-	eol = lf
 [alias]
     co = checkout
     st = status
@@ -43,7 +46,3 @@
     prompt = false
 [difftool]
     prompt = false
-
-[user]
-	email = krzysztof@antoszek.net
-	name = Krzysztof Antoszek

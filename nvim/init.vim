@@ -3,8 +3,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
-let g:python3_host_prog='C:/Python36/python.exe'
-let g:python_host_prog='C:/Python27/python.exe'
+source ~/.vimrc_local
 
 " =============== FUNCTION DEFS =====
 func! DeleteTrailingWS()
@@ -80,30 +79,31 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-call plug#begin('c:\nvim-plugged')
-  Plug 'HerringtonDarkholme/yats.vim'
+call plug#begin('~/.nvim-plugged')
+    Plug 'HerringtonDarkholme/yats.vim'
 
-	Plug 'davidhalter/jedi'
-	Plug 'leafgarland/typescript-vim'
-	Plug 'mxw/vim-jsx'
-	Plug 'pangloss/vim-javascript'
-	Plug 'othree/javascript-libraries-syntax.vim'
-	Plug 'elzr/vim-json'
-	Plug 'groenewege/vim-less'
-  
-	Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'Shougo/denite.nvim'
-  Plug 'w0rp/ale'
-  
-  Plug 'tpope/vim-fugitive'
-  Plug 'junegunn/gv.vim'
-  
-  Plug 'majutsushi/tagbar'
-  Plug 'MarcWeber/vim-addon-local-vimrc'
-  Plug 'lilydjwg/colorizer'
-  " color schemes
-  Plug 'morhetz/gruvbox'
+    Plug 'davidhalter/jedi'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'mxw/vim-jsx'
+    Plug 'pangloss/vim-javascript'
+    Plug 'othree/javascript-libraries-syntax.vim'
+    Plug 'elzr/vim-json'
+    Plug 'groenewege/vim-less'
+
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'Shougo/denite.nvim'
+    Plug 'w0rp/ale'
+    Plug 'zigford/vim-powershell'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
+
+    Plug 'majutsushi/tagbar'
+    Plug 'MarcWeber/vim-addon-local-vimrc'
+    Plug 'lilydjwg/colorizer'
+    " color schemes
+    Plug 'phanviet/vim-monokai-pro'
 call plug#end()
 
 let mapleader=" "
@@ -171,6 +171,8 @@ set tm=500
 set nomousehide
 set shellslash
 set mouse=a
+set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 let g:netrw_liststyle=3
 let g:netrw_banner=0
@@ -339,7 +341,7 @@ autocmd FileType java set omnifunc=javacomplete#Complete
 autocmd FileType go set omnifunc=gocomplete#Complete
 
 set background=dark
-colorscheme gruvbox
+colorscheme monokai_pro
 set t_Co=256
 
 let g:autotagDisabled=''
