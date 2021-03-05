@@ -1,0 +1,39 @@
+filetype on
+filetype plugin on
+filetype indent on
+
+syntax on
+
+set ruler
+set number
+set noerrorbells
+set novisualbell
+set hlsearch
+set showmatch
+
+set noswapfile
+set nobackup
+set undofile
+
+set surround
+set multiple-cursors
+set commentary
+
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+
+set NERDTree
+
+let mapleader=" "
+
+:map <C-l> <Action>(NextTab)
+:map <C-h> <Action>(PreviousTab)
+:map <C-s> <Action>(SaveDocument)
+:map <leader>b <Action>(build)
+:map <leader>d <Action>(Debug)
+:map <leader>q :close
+:map <leader>n <Action>(NewFile)
+:map <leader> <Action>(EditorToggleShowWhitespaces)
+:map <leader>h :nohl
+:map <leader>t :NERDTreeToggle
+:map <leader>b <Action>(ToggleLineBreakpoint)
