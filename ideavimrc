@@ -15,24 +15,37 @@ set noswapfile
 set nobackup
 set undofile
 
+set history=10000
+set scrolloff=5 sidescrolloff=10
 set surround
 set multiple-cursors
 set commentary
+set NERDTree
 
 set clipboard+=unnamed
 set clipboard+=unnamedplus
+set clipboard+=ideaput
 
-set NERDTree
+let mapleader=" "
 
-let mapleader="\"
+:map <leader>vv :e ~/.ideavimrc<CR>
+:map <leader>vr :source ~/.ideavimrc<CR>
 
-:map <C-l> <Action>(NextTab)
-:map <C-h> <Action>(PreviousTab)
-:map <C-s> <Action>(SaveDocument)
-:map <leader>d <Action>(Debug)
-:map <leader>q :close
-:map <leader>n <Action>(NewFile)
-:map <leader> <Action>(EditorToggleShowWhitespaces)
-:map <leader>h :nohl
-:map <leader>t :NERDTreeToggle
-:map <leader>b <Action>(ToggleLineBreakpoint)
+:map <leader>d :action Debug<CR>
+:map <leader>q :close<CR>
+:map <leader>n :action NewFile<CR>
+:map <leader>h :action EditorToggleShowWhitespaces<CR>
+:map <leader>. :nohl<CR>
+:map <leader>t :NERDTreeToggle<CR>
+:map <leader>b :action ToggleLineBreakpoint<CR>
+:map <leader>/ :action GotoFile<CR>
+:map <leader><S-\> :action SplitVertically<CR>
+:map <leader>- :action SplitHorizontally<CR>
+:map <leader>m :action Bookmarks<CR>
+:map <leader>q :action CloseContent<CR>
+
+:map <C-l> :action NextTab<CR>
+:map <C-h> :action PreviousTab<CR>
+:map <C-s> :action SaveDocument<CR>
+:map <C-p> :action SearchEverywhere<CR>
+:map <C-r> :action RunAnything<CR>
