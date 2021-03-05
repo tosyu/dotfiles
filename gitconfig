@@ -5,7 +5,7 @@
 	fscache = true
     page = 
     pager = less -X
-	autocrlf = true
+	autocrlf = input
 	eol = lf
 [color]
     branch = auto
