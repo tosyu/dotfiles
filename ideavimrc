@@ -29,7 +29,6 @@ let mapleader=" "
 :map <C-l> <Action>(NextTab)
 :map <C-h> <Action>(PreviousTab)
 :map <C-s> <Action>(SaveDocument)
-:map <leader>b <Action>(build)
 :map <leader>d <Action>(Debug)
 :map <leader>q :close
 :map <leader>n <Action>(NewFile)
