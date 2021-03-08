@@ -95,6 +95,7 @@ call plug#begin('~/.nvim-plugged')
     Plug 'Shougo/denite.nvim'
     Plug 'w0rp/ale'
     Plug 'zigford/vim-powershell'
+		Plug 'preservim/nerdtree'
 
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
@@ -259,7 +260,7 @@ nmap <leader>q :bd<cr>
 nmap <leader>Q :q<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>c :noh<cr>
-nmap <leader>t :call DeleteTrailingWS()<cr>
+nmap <leader>t :NERDTreeToggle<cr>
 
 nmap <leader>b :Lexplore<cr>
 
@@ -271,7 +272,7 @@ map <leader>j :e <cfile><cr>
 map <leader>e :Errors<cr>
 
 " toggle special chars
-map <leader>h :call MakeHiddenCharsVisible()<cr>
+map <leader>h :call DeleteTrailingWS()<cr>
 
 " write with sudo
 map <leader>sw :w !sudo tee %<CR>
