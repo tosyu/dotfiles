@@ -85,6 +85,7 @@ alias zsh_aliases="$EDITOR ~/.zsh_aliases"
 alias vimrc="$EDITOR ~/.config/nvim/init.vim"
 alias nvimrc="vimrc"
 alias lvimrc="$EDITOR ./.vimrc"
+alias vimdiff="nvim -d"
 
 alias less='less -R -X'
 alias grep='grep --color'
