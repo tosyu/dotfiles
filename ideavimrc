@@ -44,6 +44,12 @@ let mapleader=" "
 :map <leader>m :action Bookmarks<CR>
 :map <leader>q :action CloseContent<CR>
 
+:map <leader>i :action GotoImplementation<CR>
+:map <leader>I :action QuickImplementations<CR>
+:map <leader>d :action GotoDeclaration<CR>
+:map <leader>u :action FindUsages<CR>
+:map <leader>U :action FindUsagesInFile<CR>
+
 :map <C-l> :action NextTab<CR>
 :map <C-h> :action PreviousTab<CR>
 :map <C-s> :action SaveDocument<CR>
