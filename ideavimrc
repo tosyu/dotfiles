@@ -31,8 +31,6 @@ let mapleader=" "
 :map <leader>vv :e ~/.ideavimrc<CR>
 :map <leader>vr :source ~/.ideavimrc<CR>
 
-:map <leader>d :action Debug<CR>
-:map <leader>q :close<CR>
 :map <leader>n :action NewFile<CR>
 :map <leader>h :action EditorToggleShowWhitespaces<CR>
 :map <leader>. :nohl<CR>
@@ -43,6 +41,7 @@ let mapleader=" "
 :map <leader>- :action SplitHorizontally<CR>
 :map <leader>m :action Bookmarks<CR>
 :map <leader>q :action CloseContent<CR>
+:map <leader>s :w<CR>
 
 :map <leader>i :action GotoImplementation<CR>
 :map <leader>I :action QuickImplementations<CR>
