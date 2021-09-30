@@ -37,7 +37,7 @@ let mapleader=" "
 :map <leader>t :NERDTreeToggle<CR>
 :map <leader>b :action ToggleLineBreakpoint<CR>
 :map <leader>/ :action GotoFile<CR>
-:map <leader><S-\> :action SplitVertically<CR>
+:map <leader>+ :action SplitVertically<CR>
 :map <leader>- :action SplitHorizontally<CR>
 :map <leader>m :action Bookmarks<CR>
 :map <leader>q :action CloseContent<CR>

@@ -3,7 +3,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
-source ~/.vimrc_local
+source ~/.vimrc_local_initial
 
 " =============== FUNCTION DEFS =====
 func! DeleteTrailingWS()
@@ -105,6 +105,10 @@ call plug#begin('~/.nvim-plugged')
     Plug 'lilydjwg/colorizer'
     " color schemes
     Plug 'phanviet/vim-monokai-pro'
+		Plug 'prabirshrestha/vim-lsp'
+		Plug 'mattn/vim-lsp-settings'
+		Plug 'vim-scripts/pyte'
+		Plug 'sonph/onehalf'
 call plug#end()
 
 let mapleader=" "
@@ -399,3 +403,5 @@ highlight ALEWarningSign ctermfg=Yellow  ctermbg=None
 highlight ALEErrorSign ctermfg=Red ctermbg=None
 
 let g:colorizer_nomap = 1
+
+source ~/.vimrc_local_override

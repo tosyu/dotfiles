@@ -8,8 +8,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+source $HOME/.profile
+
 if [[ -z "${ZSH_TMUX_DISABLED}" ]]; then
-	ZSH_TMUX_AUTOSTART=true
+	ZSH_TMUX_AUTOSTART=false
 fi
 
 ZSH_TMUX_AUTOCONNECT=false
@@ -82,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/tosyu/bin:/usr/local/java/jdk1.7.0_25/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/home/tosyu/.local/bin/protontricks:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/tosyu/bin:/home/tosyu/.bin:/usr/local/java/jdk1.7.0_25/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
