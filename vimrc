@@ -77,6 +77,10 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_winsize=30
 
+let g:smoothie_enabled=1
+
+let g:termdebug_wide=100
+
 set noexpandtab
 set tabstop=2
 set shiftwidth=2
@@ -110,6 +114,13 @@ set hlsearch
 set omnifunc=syntaxcomplete#Complete
 set completeopt-=preview
 
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		    \	if &omnifunc == "" |
+		    \		setlocal omnifunc=syntaxcomplete#Complete |
+		    \	endif
+endif
+
 set listchars=eol:$,tab:>-,space:.,trail:~,extends:>,precedes:<
 
 packadd termdebug
@@ -129,6 +140,32 @@ nnoremap <silent> <leader>bc :make clean<cr>
 nnoremap <silent> <leader>br :make run<cr>
 nnoremap <silent> <leader>bd :Termdebug<cr>
 nnoremap <silent> <leader>co :copen<cr>
+
+nnoremap <silent> <leader>db :ToggleBreak<cr>
+nnoremap <silent> <leader>dt :Tbreak<cr>
+nnoremap <silent> <leader>dd :Clear<cr>
+nnoremap <silent> <leader>dc :Continue<cr>
+nnoremap <silent> <leader>dn :Over<cr>
+nnoremap <silent> <leader>df :Finish<cr>
+nnoremap <silent> <leader>dr :RunOrContinue<cr>
+nnoremap <silent> <leader>du :Up
+nnoremap <silent> <leader>dl :Down
+nnoremap <silent> <leader>df :Frame
+nnoremap <silent> <leader>dv :Var<cr>
+nnoremap <silent> <leader>da :Asm<cr>
+nnoremap <silent> <leader>dp :Program<cr>
+nnoremap <silent> <leader>dg :Gdb<cr>
+nnoremap <silent> <leader>ds :Source<cr>
+
+" disable arrow keys
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
 
 " source local .vimrc
 call _load_local_config()
