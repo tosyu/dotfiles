@@ -124,6 +124,9 @@ endif
 set listchars=eol:$,tab:>-,space:.,trail:~,extends:>,precedes:<
 
 packadd termdebug
+packadd editorconfig
+packadd cfilter
+packadd matchit
 
 let mapleader=" "
 
