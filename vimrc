@@ -1,0 +1,134 @@
+set nocompatible
+syntax on
+filetype plugin on
+filetype indent on
+
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+set path+=src/**
+
+" functions
+
+function! _load_local_config()
+	let path = expand(trim(getcwd())) . "/.vimrc.local"
+	if filereadable(path)
+		execute "source " . path
+	endif
+endfunction
+
+let g:ctags_args="-V -R ."
+let g:ctags_command=expand("ctags")
+
+function! _run_ctags()
+	let ctags_cmd = g:ctags_command . " " . g:ctags_args
+	echo ctags_cmd
+	exec "!" . ctags_cmd
+endfunction	
+
+command! -nargs=0 CtagsGenerate :call _run_ctags()
+
+let g:cmake_output="build/"
+let g:cmake_command=expand("cmake")
+
+function! _cmake_generate()
+	let cmake_cmd = g:cmake_command . " -B " . g:cmake_output
+	echo cmake_cmd
+	exec "!" . cmake_cmd
+endfunction
+
+function! _cmake_build()
+	let cmake_cmd = g:cmake_command . " --build " . g:cmake_output
+	echo cmake_cmd
+	exec "!" . cmake_cmd
+endfunction
+
+command! -nargs=0 CMakeGenerate :call _cmake_generate()
+command! -nargs=0 CMakeBuild :call _cmake_build()
+
+function! _get_git_branch()
+	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! _get_git_branch_for_status()
+	let l:branch = _get_git_branch()
+	return strlen(l:branch) > 0 ? ' [' . l:branch .'] ' : ''
+endfunction
+
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --hidden\ --smart-case
+
+	function! _ripgrep_find_func(cmdarg, cmdcomplete)
+		let files = systemlist("rg --files --hidden | rg " . a:cmdarg)
+		return files
+	endfunction
+
+	"set findfunc=_ripgrep_find_func
+endif
+
+set spell
+set tags=./tags,tags,.tags;$HOME
+set termguicolors
+set t_Co=256
+colorscheme habamax
+
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_winsize=30
+
+set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
+set smarttab
+set number
+set relativenumber
+set cursorline
+
+set showmode
+set showmatch
+set showcmd
+set ruler
+set laststatus=2
+
+set guioptions-=m
+set guioptions-=T
+set wildmenu
+set mouse=a
+
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,**/.git/**,**/node_modules/**
+
+set noswapfile
+set nobackup
+set history=1000
+
+set incsearch
+set hlsearch
+set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
+
+set listchars=eol:$,tab:>-,space:.,trail:~,extends:>,precedes:<
+
+packadd termdebug
+
+let mapleader=" "
+
+" key conf
+nnoremap <silent> <leader>w :w<cr>
+nnoremap <silent> <leader>W :w!<cr>
+nnoremap <silent> <leader>e :Lexplore<cr>
+nnoremap <silent> <leader>h :bprev<cr>
+nnoremap <silent> <leader>j :cnext<cr>
+nnoremap <silent> <leader>k :cprev<cr>
+nnoremap <silent> <leader>l :bnext<cr>
+nnoremap <silent> <leader>bb :make<cr>
+nnoremap <silent> <leader>bc :make clean<cr>
+nnoremap <silent> <leader>br :make run<cr>
+nnoremap <silent> <leader>bd :Termdebug<cr>
+nnoremap <silent> <leader>co :copen<cr>
+
+" source local .vimrc
+call _load_local_config()
