@@ -72,6 +72,13 @@ function! _completion_func(findstart, base) abort
 	endif
 endfunction
 
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		    \	if &omnifunc == "" |
+		    \		setlocal omnifunc=_completion_func |
+		    \	endif
+endif
+
 set omnifunc=_completion_func
 set completeopt-=preview
 
@@ -121,13 +128,6 @@ set history=1000
 
 set incsearch
 set hlsearch
-
-if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype *
-		    \	if &omnifunc == "" |
-		    \		setlocal omnifunc=syntaxcomplete#Complete |
-		    \	endif
-endif
 
 set listchars=eol:$,tab:>-,space:.,trail:~,extends:>,precedes:<
 
