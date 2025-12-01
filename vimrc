@@ -65,7 +65,17 @@ if executable("rg")
 	"set findfunc=_ripgrep_find_func
 endif
 
-set spell
+function! _completion_func(findstart, base) abort
+	let l:result = ale#completion#OmniFunc(a:findstart, a:base);
+	if (a:findstart && l:result is -3) || (!a:findstart && empty(l:result))
+		return syntaxcomplete#Complete(a:findstart, a:base)
+	endif
+endfunction
+
+set omnifunc=_completion_func
+set completeopt-=preview
+
+set spell spelllang=en_us
 set tags=./tags,tags,.tags;$HOME
 set termguicolors
 set t_Co=256
@@ -111,8 +121,6 @@ set history=1000
 
 set incsearch
 set hlsearch
-set omnifunc=syntaxcomplete#Complete
-set completeopt-=preview
 
 if has("autocmd") && exists("+omnifunc")
 	autocmd Filetype *
