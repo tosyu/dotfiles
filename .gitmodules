@@ -1,0 +1,6 @@
+[submodule "vim/pack/base/start/vim-smoothie"]
+	path = vim/pack/base/start/vim-smoothie
+	url = git@github.com:psliwka/vim-smoothie.git
+[submodule "vim/pack/base/start/vim-surround"]
+	path = vim/pack/base/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
