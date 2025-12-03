@@ -136,6 +136,7 @@ packadd editorconfig
 packadd cfilter
 packadd matchit
 
+nnoremap <space> <Nop>
 let mapleader=" "
 
 " key conf
