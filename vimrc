@@ -9,9 +9,16 @@ set path+=src/**
 
 " functions
 
-function! _load_local_config()
-	let path = expand(trim(getcwd())) . "/.vimrc.local"
+let g:_loaded_configs=[]
+function! _try_load_local_config(dir)
+	let path = expand(trim(a:dir)) . "/.vimrc.local"
+
+	if index(g:_loaded_configs, path) >= 0
+		return
+	endif
+
 	if filereadable(path)
+		:call add(g:_loaded_configs, path)
 		execute "source " . path
 	endif
 endfunction
@@ -42,8 +49,8 @@ function! _cmake_build()
 	exec "!" . cmake_cmd
 endfunction
 
-command! -nargs=0 CMakeGenerate :call _cmake_generate()
-command! -nargs=0 CMakeBuild :call _cmake_build()
+"command! -nargs=0 CMakeGenerate :call _cmake_generate()
+"command! -nargs=0 CMakeBuild :call _cmake_build()
 
 function! _get_git_branch()
 	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -180,4 +187,5 @@ noremap <Down> <Nop>
 noremap <Up> <Nop>
 
 " source local .vimrc
-call _load_local_config()
+call _try_load_local_config($HOME)
+call _try_load_local_config(getcwd())
