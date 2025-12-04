@@ -8,7 +8,7 @@
 	path = vim/pack/base/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "vim/pack/base/start/ale"]
-	path = vim/pack/base/start/ale
+	path = vim/pack/base/opt/ale
 	url = https://github.com/dense-analysis/ale.git
 [submodule "vim/pack/base/start/vim-fugitive"]
 	path = vim/pack/base/start/vim-fugitive
@@ -65,5 +65,5 @@
 	path = vim/pack/base/start/vscode.nvim
 	url = https://github.com/Mofiqul/vscode.nvim.git
 [submodule "vim/pack/base/start/vim-cmake"]
-	path = vim/pack/base/start/vim-cmake
+	path = vim/pack/base/opt/vim-cmake
 	url = https://github.com/cdelledonne/vim-cmake.git
