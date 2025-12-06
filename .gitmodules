@@ -67,3 +67,6 @@
 [submodule "vim/pack/base/start/vim-cmake"]
 	path = vim/pack/base/opt/vim-cmake
 	url = https://github.com/cdelledonne/vim-cmake.git
+[submodule "vim/pack/base/opt/lsp"]
+	path = vim/pack/base/opt/lsp
+	url = https://github.com/yegappan/lsp.git
