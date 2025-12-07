@@ -72,22 +72,17 @@ if executable("rg")
 	"set findfunc=_ripgrep_find_func
 endif
 
-function! _completion_func(findstart, base) abort
-	let l:result = ale#completion#OmniFunc(a:findstart, a:base);
-	if (a:findstart && l:result is -3) || (!a:findstart && empty(l:result))
-		return syntaxcomplete#Complete(a:findstart, a:base)
+let g:netrw_hide_files=""
+function! _netrw_gitignore()
+	if isdirectory(".git")
+		return join(systemlist('git ls-files --other --ignored --exclude-standard --directory'), ',') . g:netrw_hide_files
 	endif
+
+	return g:netrw_hide_files
 endfunction
 
-if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype *
-		    \	if &omnifunc == "" |
-		    \		setlocal omnifunc=_completion_func |
-		    \	endif
-endif
-
-set omnifunc=_completion_func
-set completeopt-=preview
+let g:netrw_list_hide=_netrw_gitignore()
+let g:netrw_hide=1
 
 set spell spelllang=en_us
 set tags=./tags,tags,.tags;$HOME
@@ -126,6 +121,8 @@ set guioptions-=m
 set guioptions-=T
 set wildmenu
 set mouse=a
+
+set completeopt-=preview
 
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,**/.git/**,**/node_modules/**
 
@@ -189,3 +186,4 @@ noremap <Up> <Nop>
 " source local .vimrc
 call _try_load_local_config($HOME)
 call _try_load_local_config(getcwd())
+
