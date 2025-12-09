@@ -137,7 +137,8 @@ nnoremap <silent> <leader>bb :make<cr>
 nnoremap <silent> <leader>bc :make clean<cr>
 nnoremap <silent> <leader>br :make run<cr>
 nnoremap <silent> <leader>bd :Termdebug<cr>
-nnoremap <silent> <leader>bm :CMakeToggle<cr>
+nnoremap <silent> <leader>ct :CMakeToggle<cr>
+nnoremap <silent> <leader>cr :CMakeRun<space>
 nnoremap <silent> <leader>co :copen<cr>
 
 nnoremap <silent> <leader>db :ToggleBreak<cr>
