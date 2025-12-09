@@ -34,24 +34,6 @@ endfunction
 
 command! -nargs=0 CtagsGenerate :call _run_ctags()
 
-let g:cmake_output="build/"
-let g:cmake_command=expand("cmake")
-
-function! _cmake_generate()
-	let cmake_cmd = g:cmake_command . " -B " . g:cmake_output
-	echo cmake_cmd
-	exec "!" . cmake_cmd
-endfunction
-
-function! _cmake_build()
-	let cmake_cmd = g:cmake_command . " --build " . g:cmake_output
-	echo cmake_cmd
-	exec "!" . cmake_cmd
-endfunction
-
-"command! -nargs=0 CMakeGenerate :call _cmake_generate()
-"command! -nargs=0 CMakeBuild :call _cmake_build()
-
 function! _get_git_branch()
 	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
@@ -155,6 +137,7 @@ nnoremap <silent> <leader>bb :make<cr>
 nnoremap <silent> <leader>bc :make clean<cr>
 nnoremap <silent> <leader>br :make run<cr>
 nnoremap <silent> <leader>bd :Termdebug<cr>
+nnoremap <silent> <leader>bm :CMakeToggle<cr>
 nnoremap <silent> <leader>co :copen<cr>
 
 nnoremap <silent> <leader>db :ToggleBreak<cr>
