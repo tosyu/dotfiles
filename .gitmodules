@@ -70,3 +70,9 @@
 [submodule "vim/pack/base/opt/lsp"]
 	path = vim/pack/base/opt/lsp
 	url = https://github.com/yegappan/lsp.git
+[submodule "vim/pack/base/opt/fzf.vim"]
+	path = vim/pack/base/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/pack/base/opt/fzf"]
+	path = vim/pack/base/opt/fzf
+	url = https://github.com/junegunn/fzf
