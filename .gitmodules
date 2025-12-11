@@ -64,9 +64,6 @@
 [submodule "vim/pack/base/start/vscode.nvim"]
 	path = vim/pack/base/start/vscode.nvim
 	url = https://github.com/Mofiqul/vscode.nvim.git
-[submodule "vim/pack/base/start/vim-cmake"]
-	path = vim/pack/base/start/vim-cmake
-	url = https://github.com/cdelledonne/vim-cmake.git
 [submodule "vim/pack/base/opt/lsp"]
 	path = vim/pack/base/opt/lsp
 	url = https://github.com/yegappan/lsp.git
@@ -76,3 +73,6 @@
 [submodule "vim/pack/base/opt/fzf"]
 	path = vim/pack/base/opt/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "vim/pack/base/opt/vim-cmake"]
+	path = vim/pack/base/opt/vim-cmake
+	url = https://github.com/cdelledonne/vim-cmake.git
