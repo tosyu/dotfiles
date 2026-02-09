@@ -85,3 +85,18 @@
 [submodule "vim/pack/base/opt/omnisharp-vim"]
 	path = vim/pack/base/opt/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim.git
+[submodule "vim/pack/base/opt/nerdtree"]
+	path = vim/pack/base/opt/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/pack/base/opt/nerdtree-git-plugin"]
+	path = vim/pack/base/opt/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/pack/base/opt/vim-devicons"]
+	path = vim/pack/base/opt/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "vim/pack/base/opt/vim-nerdtree-syntax-highlight"]
+	path = vim/pack/base/opt/vim-nerdtree-syntax-highlight
+	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
+[submodule "vim/pack/base/opt/copilot.vim"]
+	path = vim/pack/base/opt/copilot.vim
+	url = https://github.com/github/copilot.vim.git

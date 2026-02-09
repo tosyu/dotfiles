@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=UTF-8
 syntax on
 filetype plugin on
 filetype indent on
@@ -128,7 +129,9 @@ let mapleader=" "
 " key conf
 nnoremap <silent> <leader>w :w<cr>
 nnoremap <silent> <leader>W :w!<cr>
-nnoremap <silent> <leader>e :Lexplore<cr>
+" nnoremap <silent> <leader>e :Lexplore<cr>
+nnoremap <silent> <leader>e :NERDTreeToggle<cr>
+nnoremap <silent> <leader>pf :NERDTreeFind<cr>
 nnoremap <silent> <leader>h :bprev<cr>
 nnoremap <silent> <leader>j :cnext<cr>
 nnoremap <silent> <leader>k :cprev<cr>
