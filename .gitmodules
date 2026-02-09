@@ -76,3 +76,6 @@
 [submodule "vim/pack/base/opt/vim-cmake"]
 	path = vim/pack/base/opt/vim-cmake
 	url = https://github.com/cdelledonne/vim-cmake.git
+[submodule "vim/pack/base/opt/coc.nvim"]
+	path = vim/pack/base/opt/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
