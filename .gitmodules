@@ -79,3 +79,9 @@
 [submodule "vim/pack/base/opt/coc.nvim"]
 	path = vim/pack/base/opt/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule "vim/pack/base/opt/vim-polyglot"]
+	path = vim/pack/base/opt/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/pack/base/opt/omnisharp-vim"]
+	path = vim/pack/base/opt/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim.git
