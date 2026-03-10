@@ -32,3 +32,4 @@ vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 
+vim.o.winborder = "rounded"
