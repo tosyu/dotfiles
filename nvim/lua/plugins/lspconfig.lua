@@ -110,12 +110,10 @@ return {
 			vim.lsp.enable("sqls")
 		end
 
-		local roslynls_dll_path = vim.fn.stdpath("data") .. "/external_lsp/roslyn/content/LanguageServer/linux-x64/Microsoft.CodeAnalysis.LanguageServer.dll"
+		local roslynls_dll_path = vim.fn.stdpath("data") .. "/external_lsp/roslyn/Microsoft.CodeAnalysis.LanguageServer.dll"
 		local dotnet_binary = "dotnet"
 
-		if vim.fn.executable("csharp-ls") then
-			vim.lsp.enable("csharp_ls")
-		elseif vim.uv.fs_stat(roslynls_dll_path) and vim.fn.executable(dotnet_binary) then
+		if vim.uv.fs_stat(roslynls_dll_path) and vim.fn.executable(dotnet_binary) then
 			vim.lsp.config("roslyn_ls", {
 				cmd = {
 					dotnet_binary,
