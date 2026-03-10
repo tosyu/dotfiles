@@ -30,4 +30,5 @@ vim.o.backup = false
 
 vim.o.incsearch = true
 vim.o.hlsearch = true
+vim.o.ignorecase = true
 
