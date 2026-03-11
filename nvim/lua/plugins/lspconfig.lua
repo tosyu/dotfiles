@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {"mason-org/mason.nvim"},
 	opts = {},
+
 	init = function()
 		vim.o.signcolumn = "yes"
 	end,
@@ -129,7 +130,5 @@ return {
 		elseif mason_registry.has_package("omnisharp") then
 			vim.lsp.enable("omnisharp")
 		end
-
-		vim.lsp.enable("gdscript")
 	end,
 }

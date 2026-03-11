@@ -14,6 +14,8 @@ return {
 		{"<leader>fG", "<cmd>FzfLua grep<CR>", desc = "Grep"},
 		{"<leader>fl", "<cmd>FzfLua live_grep<CR>", desc = "Live grep"},
 		{"<leader>fc", "<cmd>FzfLua complete_path<CR>", desc = "Complete path"},
+		{"<leader>fe", "<cmd>FzfLua diagnostics_document<CR>", desc = "Diagnostics document"},
+		{"<leader>fE", "<cmd>FzfLua diagnostics_workspace<CR>", desc = "Diagnostics workspace"},
 		{"<leader>fC", "<cmd>FzfLua lsp_code_actions<CR>", desc = "Code actions"},
 		{"<leader>ft", "<cmd>FzfLua lsp_definitions<CR>", desc = "LSP definitions"},
 		{"<leader>fT", "<cmd>FzfLua lsp_declarations<CR>", desc = "LSP declarations"},
