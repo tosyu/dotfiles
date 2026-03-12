@@ -10,7 +10,7 @@ map("n", "<leader>j", "<cmd>:cprev<cr>", {silent = true, desc = "Previous quickf
 map("n", "<leader>k", "<cmd>:cnext<cr>", {silent = true, desc = "Next quickfix"})
 map("n", "<leader>l", "<cmd>:bnext<cr>", {silent = true, desc = "Next buffer"})
 
-map("n", "<leader>bn", "<cmd>:bprev<cr>", {silent = true, desc = "Previous"})
-map("n", "<leader>bp", "<cmd>:bnext<cr>", {silent = true, desc = "Next"})
+map("n", "<leader>bp", "<cmd>:bprev<cr>", {silent = true, desc = "Previous"})
+map("n", "<leader>bn", "<cmd>:bnext<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bq", "<cmd>:bd<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bl", "<cmd>:buffers<cr>", {silent = true, desc = "List"})

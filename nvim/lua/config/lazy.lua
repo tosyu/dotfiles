@@ -28,7 +28,7 @@ require("lazy").setup({
 		},
 		keymaps = true,
 		autocmds = true,
-		install = {colorscheme = {"habamax"}},
+		install = {colorscheme = {"tokyonight"}},
 		checker = {enabled = true},
 })
 
