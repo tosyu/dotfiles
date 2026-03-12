@@ -59,7 +59,7 @@ return {
 			vim.lsp.enable("glsl_analyzer")
 		end
 
-		if mason_registry.has_package("docker-compose-language-server") then
+		if mason_registry.has_package("docker-compose-language-service") then
 			vim.lsp.enable("docker-compose-langserver")
 		end
 
@@ -109,26 +109,6 @@ return {
 
 		if mason_registry.has_package("sqls") then
 			vim.lsp.enable("sqls")
-		end
-
-		local roslynls_dll_path = vim.fn.stdpath("data") .. "/external_lsp/roslyn/Microsoft.CodeAnalysis.LanguageServer.dll"
-		local dotnet_binary = "dotnet"
-
-		if vim.uv.fs_stat(roslynls_dll_path) and vim.fn.executable(dotnet_binary) then
-			vim.lsp.config("roslyn_ls", {
-				cmd = {
-					dotnet_binary,
-					roslynls_dll_path,
-					"--logLevel", -- this property is required by the server
-					"Information",
-					"--extensionLogDirectory", -- this property is required by the server
-					vim.fs.joinpath(vim.uv.os_tmpdir(), "roslyn_ls/logs"),
-					"--stdio",
-				},
-			})
-			vim.lsp.enable("roslyn_ls")
-		elseif mason_registry.has_package("omnisharp") then
-			vim.lsp.enable("omnisharp")
 		end
 	end,
 }
