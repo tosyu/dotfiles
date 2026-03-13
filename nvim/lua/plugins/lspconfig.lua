@@ -1,8 +1,9 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {"mason-org/mason.nvim"},
-	opts = {},
-
+	opts = {
+		inlay_hints = {enable = true},
+	},
 	init = function()
 		vim.o.signcolumn = "yes"
 	end,

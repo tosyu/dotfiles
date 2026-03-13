@@ -29,7 +29,7 @@ require("lazy").setup({
 		keymaps = true,
 		autocmds = true,
 		install = {colorscheme = {"tokyonight"}},
-		checker = {enabled = true},
+		checker = {enabled = false},
 })
 
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", {silent = true, desc = "Open Lazy"})

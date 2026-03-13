@@ -30,7 +30,7 @@ return {
 	-- internal class
 	s("cli", fmta(
 		[[
-		private class <>
+		internal class <>
 		{
 			<>
 		}
@@ -253,6 +253,28 @@ return {
 		}
 	)),
 
+	-- nterface property
+	s("iprop", fmta(
+		[[
+		<> <> { get; set; }
+		]],
+		{
+			i(1, "Type"),
+			i(2, "PropertyName")
+		}
+	)),
+
+	-- interface readonly property
+	s("ipropg", fmta(
+		[[
+		<> <> { get; }
+		]],
+		{
+			i(1, "Type"),
+			i(2, "PropertyName")
+		}
+	)),
+
 	-- public method
 	s("meth", fmta(
 		[[
@@ -326,7 +348,7 @@ return {
 		{
 			i(1, "variable"),
 			i(2, "collection"),
-			i(2)
+			i(3)
 		}
 	)),
 
