@@ -12,7 +12,9 @@ end
 config.initial_cols = 120
 config.initial_rows = 28
 
-config.color_scheme = "Modus-Vivendi"
+config.warn_about_missing_glyphs = false
+
+config.color_scheme = "Modus Vivendi"
 
 if get_appearance() == "Light" then
 	config.color_scheme = "Modus-Operandi"
