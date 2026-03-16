@@ -1,9 +1,5 @@
-[[plugin.deps]]
-use = "azzamsa/modus-vivendi.yazi:modus-vivendi"
-rev = "150e2c0"
-hash = "99aa06d3014798d86001c324468d497f"
+[plugin]
+deps = []
 
-[[flavor.deps]]
-use = "hankertrix/bluloco-yazi:bluloco-light"
-rev = "c2092a9"
-hash = "f28bac9badabeb9097751292c1c69777"
+[flavor]
+deps = []
