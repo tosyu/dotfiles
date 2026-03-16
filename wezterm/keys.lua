@@ -1,0 +1,30 @@
+local wezterm = require "wezterm"
+local act = wezterm.action
+
+local M = {
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection "Left",
+	},
+
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection "Right",
+	},
+
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection "Up",
+	},
+
+	{
+		key = "j",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection "Down",
+	},
+}
+
+return M

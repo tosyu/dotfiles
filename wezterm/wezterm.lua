@@ -1,6 +1,7 @@
 local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
+config.keys = require "keys"
 local function get_appearance()
 	if wezterm.gui then
 		return wezterm.gui.get_appearance()
@@ -17,7 +18,7 @@ config.warn_about_missing_glyphs = false
 config.color_scheme = "Modus Vivendi"
 
 if get_appearance() == "Light" then
-	config.color_scheme = "Modus-Operandi"
+--	config.color_scheme = "Modus-Operandi"
 end
 
 return config

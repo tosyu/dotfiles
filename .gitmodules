@@ -100,3 +100,6 @@
 [submodule "vim/pack/base/opt/copilot.vim"]
 	path = vim/pack/base/opt/copilot.vim
 	url = https://github.com/github/copilot.vim.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
