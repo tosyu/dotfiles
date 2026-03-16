@@ -1,0 +1,12 @@
+[opener]
+edit = [
+	{run = 'nvim "$@"', block = true},
+]
+
+[open]
+rules = [
+	{mime = "text/", use = "edit"},
+	{url = "*.json", use = "edit"},
+	{url = "*.html", use = ["open", "edit"]},
+]
+
