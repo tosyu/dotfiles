@@ -111,5 +111,9 @@ return {
 		if mason_registry.has_package("sqls") then
 			vim.lsp.enable("sqls")
 		end
+
+		if mason_registry.has_package("taplo") then
+			vim.lsp.enable("toml")
+		end
 	end,
 }

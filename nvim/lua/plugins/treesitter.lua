@@ -52,6 +52,7 @@ return {
 			"vue",
 			"yaml",
 			"zsh",
+			"toml",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		indent = {enable = true},
