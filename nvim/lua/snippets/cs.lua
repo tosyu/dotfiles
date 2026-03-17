@@ -1,3 +1,7 @@
+local get_filename = function()
+	return vim.fn.expand("%:t:r")
+end
+
 return {
 	-- public class
 	s("cl", fmta(
@@ -8,7 +12,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -22,7 +27,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -36,7 +42,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -50,7 +57,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -64,7 +72,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -78,7 +87,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -92,7 +102,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -106,7 +117,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -120,7 +132,8 @@ return {
 		}
 		]],
 		{
-			i(1, "ClassName"),
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -184,7 +197,8 @@ return {
 		}
 		]],
 		{
-			i(1, "IInterfaceName"),
+			-- i(1, "IInterfaceName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -198,7 +212,8 @@ return {
 		}
 		]],
 		{
-			i(1, "IInterfaceName"),
+			-- i(1, "IInterfaceName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -212,7 +227,8 @@ return {
 		}
 		]],
 		{
-			i(1, "IInterfaceName"),
+			-- i(1, "IInterfaceName"),
+			f(get_filename, {}),
 			i(2)
 		}
 	)),
@@ -220,14 +236,16 @@ return {
 	-- constructor
 	s("ctor", fmta(
 		[[
-		public <>
+		public <>(<>)
 		{
 			<>
 		}
 		]],
 		{
-			i(1, "ClassName"),
-			i(2)
+			-- i(1, "ClassName"),
+			f(get_filename, {}),
+			i(2),
+			i(3)
 		}
 	)),
 
