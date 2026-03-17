@@ -25,6 +25,12 @@ local M = {
 		mods = "CTRL|SHIFT",
 		action = act.ActivatePaneDirection "Down",
 	},
+
+	{
+		key = "`",
+		mods = "CTRL",
+		action = act.ShowDebugOverlay,
+	}
 }
 
 return M
