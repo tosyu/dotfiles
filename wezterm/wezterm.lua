@@ -10,6 +10,14 @@ local function get_appearance()
 	return "Dark"
 end
 
+local function get_theme()
+	if get_appearance() == "Dark" then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
+end
+
 print(wezterm.target_triple)
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = {"pwsh.exe -NoLogo"}
@@ -27,7 +35,7 @@ config.automatically_reload_config = true
 config.color_scheme = "Modus Vivendi"
 
 if get_appearance() == "Light" then
-	config.color_scheme = "Modus-Operandi"
+	config.color_scheme = get_theme()
 end
 
 return config
