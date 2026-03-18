@@ -14,3 +14,4 @@ map("n", "<leader>bp", "<cmd>:bprev<cr>", {silent = true, desc = "Previous"})
 map("n", "<leader>bn", "<cmd>:bnext<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bq", "<cmd>:bd<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bl", "<cmd>:buffers<cr>", {silent = true, desc = "List"})
+

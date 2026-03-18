@@ -35,6 +35,17 @@ vim.o.ignorecase = true
 vim.o.winborder = "rounded"
 
 vim.diagnostic.config({
+  virtual_text = true,
+  virtual_lines = false,
+  severity_sort = true,
+  float = {
+    header = "",
+    source = true,
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    prefix = "",
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '✘',
@@ -44,3 +55,8 @@ vim.diagnostic.config({
     },
   },
 })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+

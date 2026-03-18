@@ -46,14 +46,21 @@ return {
 
 		if mason_registry.has_package("lua-language-server") then
 			local lua_lsp_binary = vim.fn.expand("$MASON/bin/lua-language-server")
-			vim.lsp.config("lua", {
+			vim.lsp.config("lua_ls", {
 				cmd = {
 					lua_lsp_binary,
 					"--stdio"
 				},
-				filetypes = {"lua"},
+				settings = {
+					Lua = {
+						diagnostics = {
+							enable = true,
+							globals = {"hs", "vim", "it", "describe", "before_each", "after_each"},
+						},
+					},
+				}
 			})
-			vim.lsp.enable("lua")
+			vim.lsp.enable("lua_ls")
 		end
 
 		if mason_registry.has_package("glsl_analyzer") then

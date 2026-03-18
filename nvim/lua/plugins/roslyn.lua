@@ -1,6 +1,9 @@
 return {
 	"seblyng/roslyn.nvim",
-	dependencies = {"mason-org/mason.nvim"},
+	dependencies = {
+		"mason-org/mason.nvim",
+		"j-hui/fidget.nvim",
+	},
 	config = function ()
 		local mason_registry = require("mason-registry")
 
@@ -19,7 +22,7 @@ return {
 					},
 					["csharp|code_lens"] = {
 						dotnet_enable_references_code_lens = true,
-						dotnet_enable_Tests_code_lens = true,
+						dotnet_enable_tests_code_lens = true,
 					},
 					["csharp|symbol_search"] = {
 						dotnet_search_reference_assemblies = true,
@@ -32,6 +35,7 @@ return {
 					},
 					["csharp|completion"] = {
 						dotnet_show_completion_items_from_unimported_namespaces = true,
+						dotnet_show_name_completion_suggestions = true,
 					},
 				},
 			})
