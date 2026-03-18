@@ -9,6 +9,7 @@ vim.o.tags = "./tags,tags,.tags;$HOME"
 vim.o.termguicolors = true
 -- vim.o.t_Co = 256
 
+vim.o.wrap = false
 vim.o.expandtab = false
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
