@@ -4,8 +4,12 @@ return {
 		display = {
 			done_ttl = 4,
 		},
-		window = {
-			border = "rounded",
+		notification = {
+			window = {
+				border = "rounded",
+				x_padding = 1,
+				y_padding = 1,
+			},
 		},
 	},
 	config = function (_, opts)

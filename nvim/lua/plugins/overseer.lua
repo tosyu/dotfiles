@@ -1,6 +1,19 @@
+local custom_template_dir = vim.fn.stdpath("config") .. "/lua/overseer/templates";
+
 return {
 	"stevearc/overseer.nvim",
-	opts = {},
+	event = "VeryLazy",
+	opts = {
+		task_list = {
+			template_dirs = {
+				custom_template_dir,
+			},
+			log_level = vim.log.levels.DEBUG,
+		},
+	},
+	config = function(_, opts)
+		require("overseer").setup(opts or {})
+	end,
 	keys = {
 		{ "<leader>r", "<cmd>OverseerToggle<cr>", desc = "Overseer toggle" },
 		{ "<leader>rr", "<cmd>OverseerRun<cr>", desc = "Overseer run" },

@@ -23,6 +23,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = {"pwsh.exe -NoLogo"}
 end
 
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.initial_cols = 120
 config.initial_rows = 28
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
@@ -36,8 +37,6 @@ config.window_padding = {
 	top = 0,
 	bottom = 0
 }
-
-config.window_decorations = "INTEGRATED_BUTTONS|TITLE|RESIZE"
 
 config.automatically_reload_config = true
 

@@ -66,3 +66,4 @@ vim.api.nvim_command("filetype plugin on")
 vim.api.nvim_command("set shortmess-=F")
 
 vim.api.nvim_command("set completeopt=menu,menuone,fuzzy,noinsert")
+
