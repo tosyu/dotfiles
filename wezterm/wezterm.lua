@@ -11,7 +11,7 @@ local function get_appearance()
 end
 
 local function get_theme()
-	if get_appearance() == "Dark" then
+	if get_appearance():find "Dark" then
 		return "Catppuccin Mocha"
 	else
 		return "Catppuccin Latte"
@@ -26,13 +26,20 @@ end
 config.initial_cols = 120
 config.initial_rows = 28
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
-config.hide_tab_bar_if_only_one_tab = true
 
 config.warn_about_missing_glyphs = false
 config.audible_bell = "Disabled"
 
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0
+}
+
+config.window_decorations = "INTEGRATED_BUTTONS|TITLE|RESIZE"
+
 config.automatically_reload_config = true
-config.color_scheme = "Modus Vivendi"
 
 if get_appearance() == "Light" then
 	config.color_scheme = get_theme()

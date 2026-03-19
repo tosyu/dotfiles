@@ -64,3 +64,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 
 vim.api.nvim_command("filetype plugin on")
 vim.api.nvim_command("set shortmess-=F")
+
+vim.api.nvim_command("set completeopt=menu,menuone,fuzzy,noinsert")
