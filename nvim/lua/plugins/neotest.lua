@@ -5,7 +5,20 @@ return {
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"stevearc/overseer.nvim",
 	},
+	config = function(_, opts)
+		local opts = {
+			consumers = {
+				overseer = require("neotest.consumers.overseer"),
+			},
+			overseer = {
+				enabled = true,
+				force_default = false,
+			},
+		}
+		require("neotest").setup(opts or {})
+	end,
 	keys = {
 		{
 			"<leader>t",

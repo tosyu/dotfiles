@@ -12,7 +12,10 @@ return {
 		},
 	},
 	config = function(_, opts)
-		require("overseer").setup(opts or {})
+		local o = require("overseer")
+
+		o.setup(opts or {})
+		-- o.register_template(require("overseer.template.dotnet"))
 	end,
 	keys = {
 		{ "<leader>r", "<cmd>OverseerToggle<cr>", desc = "Overseer toggle" },
