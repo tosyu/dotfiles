@@ -12,10 +12,18 @@ return {
 		},
 	},
 	config = function(_, opts)
-		local o = require("overseer")
+		require("overseer").setup(opts or {})
 
-		o.setup(opts or {})
-		-- o.register_template(require("overseer.template.dotnet"))
+		vim.api.nvim_create_user_command("OverseerLog", function()
+			local log_path = vim.fn.stdpath("state") .. "/overseer.log"
+			print(log_path)
+			if not vim.uv.fs_stat(log_path) then
+				vim.notify("Overseer log file at " .. log_path .. " does not exist", vim.log.levels.ERROR)
+				return
+			end
+
+			vim.cmd.edit(log_path)
+		end, {})
 	end,
 	keys = {
 		{ "<leader>r", "<cmd>OverseerToggle<cr>", desc = "Overseer toggle" },
