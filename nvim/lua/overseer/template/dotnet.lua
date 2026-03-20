@@ -1,27 +1,35 @@
+local function is_nil_or_empty(str)
+	return str == nil or str == ""
+end
+
+local function is_nil_or_zero(par)
+	return par == nil or par == 0
+end
+
 local function get_args_from_params(solution, params)
 	local args = {"--nologo"}
 
-	if params.configuration ~= nil then
+	if not is_nil_or_empty(params.configuration) then
 		table.insert(args, "--configuration")
 		table.insert(args, params.configuration)
 	end
 
-	if params.framework ~= nil then
+	if not is_nil_or_empty(params.framework) then
 		table.insert(args, "--framework")
 		table.insert(args, params.framework)
 	end
 
-	if params.verbosity ~= nil then
+	if not is_nil_or_empty(params.verbosity) then
 		table.insert(args, "--verbosity")
 		table.insert(args, params.verbosity)
 	end
 
-	if params.settings ~= nil then
+	if not is_nil_or_empty(params.settings) then
 		table.insert(args, "--settings")
 		table.insert(args, params.settings)
 	end
 
-	if params.filter ~= nil then
+	if not is_nil_or_empty(params.filter) then
 		table.insert(args, "--filter")
 		table.insert(args, params.filter)
 	end
@@ -29,7 +37,7 @@ local function get_args_from_params(solution, params)
 	if params.blame_hang == true then
 		table.insert(args, "--blame-hang")
 
-		if params.blame_hang_timeout ~= nil then
+		if not is_nil_or_zero(params.blame_hang_timeout) then
 			table.insert(args, "--blame-hang-timeout")
 			table.insert(args, params.blame_hang_timeout)
 		end
@@ -39,7 +47,7 @@ local function get_args_from_params(solution, params)
 		table.insert(args, "--list-tests")
 	end
 
-	if params.project ~= nil then
+	if not is_nil_or_empty(params.project) then
 		table.insert(args, "--project")
 		table.insert(args, params.project)
 	else
@@ -106,7 +114,7 @@ local function get_tasks_for_solution(solution, callback)
 
 		local template_defs = {}
 		local commands = {"build", "run", "test"}
-		local projects_common = get_projects()
+		local projects = get_projects()
 		local common_components = {
 			"default",
 			"on_complete_notify",
@@ -127,6 +135,7 @@ local function get_tasks_for_solution(solution, callback)
 
 		local verbosity_param = {
 			optional = true,
+			default = "normal",
 			type = "enum",
 			name = "Verbosity level",
 			choices = {"quiet", "minimal", "normal", "detailed", "diagnostic"},
@@ -150,34 +159,33 @@ local function get_tasks_for_solution(solution, callback)
 				end,
 				params = {
 					project = {
-						optional = true,
 						type = "enum",
-						choices = projects_common,
+						choices = projects,
 						name = "Project",
+						optional = true,
 					},
 					configuration = configuration_param,
 					framework = framework_param,
 					verbosity = verbosity_param,
 				},
-				open = true,
 			}
 		end
 
 		template_defs["build"]["params"]["no_restore"] = {
 			type = "boolean",
-			optional = true,
 			name = "Do not restore project",
+			default = false,
 		}
 
 		template_defs["build"]["params"]["debug"] = {
 			type = "boolean",
-			optional = true,
 			name = "Debug",
+			default = false,
 		}
 
 		template_defs["run"]["params"]["no_build"] = {
 			type = "boolean",
-			optional = true,
+			default = false,
 			name = "Do not build project",
 		}
 
@@ -200,8 +208,9 @@ local function get_tasks_for_solution(solution, callback)
 				framework = framework_param,
 				verbosity = verbosity_param,
 				list_tests = {
-					type = "boolean",
 					optional = true,
+					type = "boolean",
+					default = false,
 					name = "List tests",
 				},
 				settings = {
@@ -216,11 +225,13 @@ local function get_tasks_for_solution(solution, callback)
 				},
 				blame_hang = {
 					type = "boolean",
+					default = false,
 					optional = true,
 					name = "Enable blame mode",
 				},
 				blame_hang_timeout = {
 					type = "integer",
+					default = 0,
 					optional = true,
 					name = "Per-test timeout in blame mode",
 				},
