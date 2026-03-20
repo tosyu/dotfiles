@@ -34,32 +34,17 @@ vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 
-vim.o.winborder = "rounded"
-
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   virtual_lines = false,
   severity_sort = true,
+  signs = true,
   float = {
-    header = "",
-    source = true,
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    prefix = "",
+    border = "single",
+    format = function(diagnostic)
+      return string.format("%s (%s) [%s]", diagnostic.message, diagnostic.soure, diagnostic.code or diagnostic.user_data.lsp.code)
+    end,
   },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '✘',
-      [vim.diagnostic.severity.WARN] = '▲',
-      [vim.diagnostic.severity.HINT] = '⚑',
-      [vim.diagnostic.severity.INFO] = '»',
-    },
-  },
-})
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
 })
 
 vim.api.nvim_command("filetype plugin on")

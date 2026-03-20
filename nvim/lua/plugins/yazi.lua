@@ -6,7 +6,7 @@ return {
 	keys = {
 		{"<leader>-", mode = {"n", "v"}, "<cmd>Yazi<cr>", desc = "Open Yazi at the current file"},
 		{"<leader>cw", "<cmd>Yazi cwd<cr>", desc = "Open Yazi at cwd"},
-		{"<leader>Y", "<cmd>Yazi toggle<cr>", desc = "Toggle Yazi"},
+		{"<leader>e", "<cmd>Yazi toggle<cr>", desc = "Toggle Yazi"},
 	},
 	opts = {
 		open_for_directories = false,

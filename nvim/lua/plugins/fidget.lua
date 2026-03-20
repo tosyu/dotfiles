@@ -6,7 +6,7 @@ return {
 		},
 		notification = {
 			window = {
-				border = "rounded",
+				border = "single",
 				x_padding = 1,
 				y_padding = 1,
 			},
