@@ -15,3 +15,5 @@ map("n", "<leader>bn", "<cmd>:bnext<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bq", "<cmd>:bd<cr>", {silent = true, desc = "Next"})
 map("n", "<leader>bl", "<cmd>:buffers<cr>", {silent = true, desc = "List"})
 
+map("n", "<leader>m", "<cmd>:marks<cr>", {silent = true, desc = "List marks"})
+
