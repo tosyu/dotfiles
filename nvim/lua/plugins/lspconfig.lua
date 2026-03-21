@@ -33,7 +33,7 @@ local function create_autocmds()
 			end
 
 			if client.supports_method(vim.lsp.protocol.Methods.textDocument__inlineCompletion) and not vim.lsp.inline_completion == nil then
-				vim.lsp.inline_completion.enable(true, {bufnr = event.buf})
+				vim.lsp.inline_completion.enable(true, {autotrigger = true, bufnr = event.buf})
 			end
 
 		end,
@@ -165,6 +165,10 @@ return {
 
 		if mason_registry.has_package("taplo") then
 			vim.lsp.enable("toml")
+		end
+
+		if mason_registry.has_package("zls") then
+			vim.lsp.enable("zls")
 		end
 	end,
 }
